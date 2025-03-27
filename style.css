@@ -146,6 +146,64 @@ MEDIA SECTION
 OJO QUE ESTA ES LA SECCION DE LA PAGINA EN PANTALLA GRANDE
  */
 
+ @media (max-width: 768px) {
+  body {
+    background-color: #222; /* Fondo negro */
+    color: white; /* Texto blanco */
+  }
+
+  .nav-menu {
+    background: #222; 
+  }
+
+  .nav-menu li a {
+    color: white; 
+  }
+
+  h1, h2 {
+    text-align: center;
+    font-size: 22px; 
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 18px;
+    text-align: center;
+    padding: 0 15px; 
+  }
+
+  table {
+    width: 100%;
+    max-width: 600px; 
+    margin: 10px auto; 
+    border-collapse: collapse;
+  }
+
+  th, td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid rgb(0, 0, 0);
+    color: #000000;
+  }
+
+  button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 15px;
+    font-size: 18px;
+    background-color: #9900ff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  button:hover {
+    background-color: #7700cc;
+  }
+}
+
+
 
 @media (width > 768px) {
 
@@ -219,3 +277,65 @@ OJO QUE ESTA ES LA SECCION DE LA PAGINA EN PANTALLA GRANDE
 }
 
 /*--------------------------------------*/
+
+
+/* Estilos para la sección de deportes */
+.seccion {
+  padding: 40px;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  margin: 20px;
+}
+
+h2, h3 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Estilos para la tabla */
+table {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+
+th {
+  background-color: #000000;
+  color: white;
+}
+
+/* Estilos para video y audio */
+video, audio {
+  display: block;
+  margin: 20px auto;
+  max-width: 100%;
+}
+
+/* Estilos para el botón */
+button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #000000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #000000;
+}
