@@ -1,33 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 
-/* 
-Ojala usen variables
-Ejemplo:
---background: #222; 
---fuente_principal: "Poppins";
-
-estan funcionan como todas las variables que usan todos los lenguajes de programacion.
+/* 1. APLICAR TIPOGRAFÍA NUEVA, EN ESTE CASO POPPINS
+   2. APLICAR FONDO GRIS (#f5f5f5) *Los artículos en blanco tienen su propia sección
 */
 
 * {
-  --background: #222;
-  --fuente_principal: "Poppins";
+  --background: #f5f5f5; /* Fondo general */
+  --articulo-fondo: #ffffff; /* Fondo de los artículos */
+  --fuente_principal: "Poppins", sans-serif;
+  --color-texto: #333;
+
 
   padding: 0;
-  margin: 0px;
+  margin: 0;
   text-decoration: none;
   list-style: none;
   box-sizing: border-box;
-
 }
-
 
 body {
-  font-family: var(--fuente_principal), sans-serif;
+  font-family: var(--fuente_principal);
   background-color: var(--background);
+  color: var(--color-texto);
 }
-
 header {
 
   width: 100%;
@@ -79,7 +75,7 @@ nav {
 }
 
 .nav-menu li a {
-  color: #fff;
+  color: #867171;
   font-size: 20px;
   text-transform: uppercase;
   font-weight: 600;
@@ -87,10 +83,14 @@ nav {
 
 .nav-menu li a.active,
 .nav-menu li a:hover {
-  color: #9900ff;
+  color: #000000;
   transition: 0.3s;
 }
 
+.nav-menu li a:hover {
+  font-weight: bold;
+  text-decoration: none;
+}
 
 .logo {
   width: 30px;
@@ -138,12 +138,142 @@ nav {
 
 }
 
+/*--------------------------------------*/
+
+
+/* Estilos para la sección de deportes */
+.seccion {
+  padding: 40px;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  margin: 20px;
+}
+
+h2, h3 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Estilos para la tabla */
+table {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+
+th {
+  background-color: #000000;
+  color: white;
+}
+
+/* Estilos para video y audio */
+video, audio {
+  display: block;
+  margin: 20px auto;
+  max-width: 100%;
+}
+
+/* Estilos para el botón */
+button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #000000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #000000;
+}
+
+
+/* CONTENEDOR DE ARTÍCULOS 
+   2. ARTÍCULOS CON FONDO BLANCO
+   3. ARTÍCULOS COMO GRILLA (ya no tabla)
+*/
+.contenedor-articulos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+}
+
+/* ESTILOS DE LOS ARTÍCULOS */
+.articulo {
+  background-color: var(--articulo-fondo);
+  padding: 20px;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* 4. AL UBICAR EL MOUSE ENCIMA DE GRILLA
+(HOVER) TENEMOS FONDO NEGRO Y LETRA BLANCA */
+.articulo:hover {
+  background-color: black;
+  color: white;
+  transform: scale(1.03);
+}
+.articulo:hover p {
+    color: white;
+    transform: scale(1.03);
+  }
+
+  .articulo:hover h3 {
+    color: white;
+  }
+
+
+/* FOOTER
+   5. FOOTER CON COLOR DE FONDO Y TEXTO
+*/
+footer {
+  background-color: #c9d2d0;
+  color: #31231e;
+  text-align: center;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+  /* EFECTO NEGRITA EN VÍNCULOS
+     6. EN VÍNCULOS SIN TOCAR: SE VEN SUBRAYADOS
+        EN HOVER: QUITA SUBRAYADO + NEGRITA
+  */
+  a {
+    text-decoration: underline; /* Subrayado por defecto */
+    font-weight: normal; /* Texto normal */
+    color: black; 
+    transition: all 0.3s ease-in-out; 
+  }
+  
+  a:hover {
+    text-decoration: none; /* Quita el subrayado */
+    font-weight: bold; /* Pone en negrita */
+  }
+
 /* 
 MEDIA SECTION 
 */
 
 /* 
-OJO QUE ESTA ES LA SECCION DE LA PAGINA EN PANTALLA GRANDE
+PANTALLA PARA MÓVIL
  */
 
  @media (max-width: 768px) {
@@ -186,24 +316,19 @@ OJO QUE ESTA ES LA SECCION DE LA PAGINA EN PANTALLA GRANDE
     color: #000000;
   }
 
-  button {
-    display: block;
-    margin: 20px auto;
-    padding: 10px 15px;
-    font-size: 18px;
-    background-color: #9900ff;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s;
+  .articulo p {
+    color: #000000;
   }
 
-  button:hover {
-    background-color: #7700cc;
+  .contenedor-articulos {
+    grid-template-columns: 1fr;
   }
+
 }
 
-
+/* 
+  PANTALLA PARA PC
+*/
 
 @media (width > 768px) {
 
@@ -276,66 +401,3 @@ OJO QUE ESTA ES LA SECCION DE LA PAGINA EN PANTALLA GRANDE
 
 }
 
-/*--------------------------------------*/
-
-
-/* Estilos para la sección de deportes */
-.seccion {
-  padding: 40px;
-  text-align: center;
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  margin: 20px;
-}
-
-h2, h3 {
-  color: #333;
-  margin-bottom: 20px;
-}
-
-/* Estilos para la tabla */
-table {
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  border-collapse: collapse;
-}
-
-table, th, td {
-  border: 1px solid #ddd;
-}
-
-th, td {
-  padding: 15px;
-  text-align: left;
-}
-
-th {
-  background-color: #000000;
-  color: white;
-}
-
-/* Estilos para video y audio */
-video, audio {
-  display: block;
-  margin: 20px auto;
-  max-width: 100%;
-}
-
-/* Estilos para el botón */
-button {
-  display: block;
-  margin: 20px auto;
-  padding: 10px 20px;
-  font-size: 16px;
-  color: white;
-  background-color: #000000;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-button:hover {
-  background-color: #000000;
-}
