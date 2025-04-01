@@ -6,8 +6,10 @@
 */
 
 * {
-  --background: #f5f5f5; /* Fondo general */
-  --articulo-fondo: #ffffff; /* Fondo de los artículos */
+  --background: #f5f5f5;
+  /* Fondo general */
+  --articulo-fondo: #ffffff;
+  /* Fondo de los artículos */
   --fuente_principal: "Poppins", sans-serif;
   --color-texto: #333;
 
@@ -24,6 +26,7 @@ body {
   background-color: var(--background);
   color: var(--color-texto);
 }
+
 header {
 
   width: 100%;
@@ -150,7 +153,8 @@ nav {
   margin: 20px;
 }
 
-h2, h3 {
+h2,
+h3 {
   color: #333;
   margin-bottom: 20px;
 }
@@ -163,11 +167,14 @@ table {
   border-collapse: collapse;
 }
 
-table, th, td {
+table,
+th,
+td {
   border: 1px solid #ddd;
 }
 
-th, td {
+th,
+td {
   padding: 15px;
   text-align: left;
 }
@@ -178,7 +185,8 @@ th {
 }
 
 /* Estilos para video y audio */
-video, audio {
+video,
+audio {
   display: block;
   margin: 20px auto;
   max-width: 100%;
@@ -231,14 +239,33 @@ button:hover {
   color: white;
   transform: scale(1.03);
 }
-.articulo:hover p {
-    color: white;
-    transform: scale(1.03);
-  }
 
-  .articulo:hover h3 {
-    color: white;
-  }
+.articulo:hover p {
+  color: white;
+  transform: scale(1.03);
+}
+
+.articulo:hover h3 {
+  color: white;
+}
+
+.media-container {
+  position: relative;
+  width: 80%; /* Reduce el tamaño manteniendo proporciones */
+  max-width: 1200px; /* Tamaño máximo */
+  margin: auto; /* Centrar el contenedor */
+  padding-bottom: 56.25%; /* Aspect ratio 16:9 */
+  height: 0;
+  overflow: hidden;
+}
+
+.media-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80%;
+}
 
 
 /* FOOTER
@@ -252,21 +279,25 @@ footer {
   margin-top: 0px;
 }
 
-  /* EFECTO NEGRITA EN VÍNCULOS
+/* EFECTO NEGRITA EN VÍNCULOS
      6. EN VÍNCULOS SIN TOCAR: SE VEN SUBRAYADOS
         EN HOVER: QUITA SUBRAYADO + NEGRITA
   */
-  a {
-    text-decoration: underline; /* Subrayado por defecto */
-    font-weight: normal; /* Texto normal */
-    color: black; 
-    transition: all 0.3s ease-in-out; 
-  }
-  
-  a:hover {
-    text-decoration: none; /* Quita el subrayado */
-    font-weight: bold; /* Pone en negrita */
-  }
+a {
+  text-decoration: underline;
+  /* Subrayado por defecto */
+  font-weight: normal;
+  /* Texto normal */
+  color: black;
+  transition: all 0.3s ease-in-out;
+}
+
+a:hover {
+  text-decoration: none;
+  /* Quita el subrayado */
+  font-weight: bold;
+  /* Pone en negrita */
+}
 
 /* 
 MEDIA SECTION 
@@ -276,40 +307,44 @@ MEDIA SECTION
 PANTALLA PARA MÓVIL
  */
 
- @media (max-width: 768px) {
+@media (max-width: 768px) {
   body {
-    background-color: #222; /* Fondo negro */
-    color: white; /* Texto blanco */
+    background-color: #222;
+    /* Fondo negro */
+    color: white;
+    /* Texto blanco */
   }
 
   .nav-menu {
-    background: #222; 
+    background: #222;
   }
 
   .nav-menu li a {
-    color: white; 
+    color: white;
   }
 
-  h1, h2 {
+  h1,
+  h2 {
     text-align: center;
-    font-size: 22px; 
+    font-size: 22px;
     margin-bottom: 10px;
   }
 
   p {
     font-size: 18px;
     text-align: center;
-    padding: 0 15px; 
+    padding: 0 15px;
   }
 
   table {
     width: 100%;
-    max-width: 600px; 
-    margin: 10px auto; 
+    max-width: 600px;
+    margin: 10px auto;
     border-collapse: collapse;
   }
 
-  th, td {
+  th,
+  td {
     padding: 12px;
     text-align: center;
     border: 1px solid rgb(0, 0, 0);
@@ -400,4 +435,3 @@ PANTALLA PARA MÓVIL
   }
 
 }
-
