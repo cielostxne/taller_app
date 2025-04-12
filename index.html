@@ -9,6 +9,26 @@
     <script src="https://kit.fontawesome.com/2cb25f2c39.js"></script>
     <link rel="icon" href="./imagenes/favicon.ico" type="image/x-icon">
 </head>
+<script>
+  const form = document.getElementById('formArticulo');
+  const contenedor = document.getElementById('contenedorArticulos');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault(); // evita que recargue la página
+
+    const titulo = document.getElementById('tituloArticulo').value.trim();
+    const contenido = document.getElementById('contenidoArticulo').value.trim();
+
+    if (titulo && contenido) {
+      const nuevoArticulo = document.createElement('div');
+      nuevoArticulo.classList.add('articulo');
+      nuevoArticulo.innerHTML = `<h3>${titulo}</h3><p>${contenido}</p>`;
+      contenedor.prepend(nuevoArticulo); // Agrega al principio
+
+      form.reset(); // Limpia el formulario
+    }
+  });
+</script>
 
 <body>
     <!-- MENU DE NAVEGACION -->
@@ -27,6 +47,17 @@
             <li><a href="./paginas/noticias_page.html">Noticias</a></li>
         </ul>
         <div id="fechaHora" class="reloj-cabecera"></div> <!-- FECHA Y HORA EN VIVO -->
+        <!-- FORMULARIO FLOTANTE  -->
+<section class="formulario-flotante">
+    <form id="formArticulo">
+      <h3>Nuevo artículo</h3>
+      <input type="text" id="tituloArticulo" placeholder="Título" required>
+      <textarea id="contenidoArticulo" placeholder="Descripción" required></textarea>
+      <button type="submit">Agregar</button>
+    </form>
+  </section>
+  
+          
     </nav>
     
     <!-- Contenido -->

@@ -538,4 +538,49 @@ PANTALLA PARA MÓVIL
       text-align: center;
     }
   }
+  .formulario-flotante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+  
+  .formulario-flotante h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .formulario-flotante input,
+  .formulario-flotante textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 6px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-family: inherit;
+    font-size: 0.9rem;
+  }
+  
+  .formulario-flotante button {
+    width: 100%;
+    background-color: #000;
+    color: white;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 8px;
+  }
+  
+  .formulario-flotante button:hover {
+    background-color: #333;
+  }
+  
 }
