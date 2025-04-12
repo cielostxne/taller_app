@@ -26,7 +26,9 @@
             <li><a href="./paginas/negocios_page.html">Negocios</a></li>
             <li><a href="./paginas/noticias_page.html">Noticias</a></li>
         </ul>
+        <div id="fechaHora" class="reloj-cabecera"></div> <!-- FECHA Y HORA EN VIVO -->
     </nav>
+    
     <!-- Contenido -->
 
 
@@ -41,6 +43,7 @@
                 es mantenerte informado de manera clara, rápida y actualizada sobre los acontecimientos más importantes
                 de la actualidad.
             </p>
+            <div id="fechaHora" class="reloj-header"></div> <!-- la fecha y la hora -->
         </div>
 
     </header>
@@ -48,6 +51,21 @@
     <footer>
         <p>© 2025 El Faro - Todos los derechos reservados.</p>
     </footer>
+    <script>
+        function actualizarFechaHora() {
+            const ahora = new Date();
+            const opcionesFecha = {
+                weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+            };
+            const fecha = ahora.toLocaleDateString('es-CL', opcionesFecha);
+            const hora = ahora.toLocaleTimeString('es-CL', { hour12: false });
+            document.getElementById("fechaHora").textContent = `${fecha} - ${hora}`;
+        }
+    
+        setInterval(actualizarFechaHora, 1000);
+        actualizarFechaHora();
+    </script>
+    
 </body>
 
 </html>

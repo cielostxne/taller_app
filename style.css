@@ -517,4 +517,14 @@ PANTALLA PARA MÓVIL
     color: #f0f0f0;
   }
 
+  .reloj-cabecera {
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 8px 16px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    margin-left: auto;
+  }
+  
 }
