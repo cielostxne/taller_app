@@ -430,6 +430,7 @@ PANTALLA PARA MÓVIL
 
 @media (width > 768px) {
 
+  
   .logo {
     margin-left: 0;
   }
@@ -468,10 +469,6 @@ PANTALLA PARA MÓVIL
     gap: 0;
 
   }
-
-
-
-
 
   .nav-menu li {
     display: flex;
@@ -528,6 +525,8 @@ PANTALLA PARA MÓVIL
     margin-left: auto;
     white-space: nowrap;
   }
+
+}
   
   /* Para pantallas pequeñas (menú móvil) */
   @media (max-width: 768px) {
@@ -538,6 +537,8 @@ PANTALLA PARA MÓVIL
       text-align: center;
     }
   }
+
+
   .formulario-flotante {
     position: fixed;
     bottom: 20px;
@@ -582,9 +583,12 @@ PANTALLA PARA MÓVIL
   .formulario-flotante button:hover {
     background-color: #222;
   }
+
+
   @media (max-width: 768px) {
     .formulario-flotante {
-      width: 100%;
+      width: 50%;
+      top: 50rem;
       right: 0;
       bottom: 0;
       border-radius: 0;
@@ -606,28 +610,77 @@ PANTALLA PARA MÓVIL
       padding: 10px;
     }
   
-    nav {
-      flex-direction: column;
-      height: auto;
-    }
-  
-    .nav-menu {
-      position: static;
-      display: block;
-      text-align: center;
-      height: auto;
-      background: none;
-    }
-  
-    .nav-menu li {
-      display: block;
-      margin: 10px 0;
-    }
+
   
     .reloj-cabecera {
       text-align: center;
       margin: 10px auto;
     }
+
+    
   }
   
+
+
+
+
+/* CONTACTO */
+
+.form-container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
 }
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.btn-enviar {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-enviar:hover {
+  background-color: #0056b3;
+}
+
+.form-container body {
+
+
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+  }
+
