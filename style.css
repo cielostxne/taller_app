@@ -551,18 +551,18 @@ PANTALLA PARA MÓVIL
   }
   
   .formulario-flotante h3 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
     text-align: center;
+    font-size: 1.1rem;
   }
   
   .formulario-flotante input,
-  .formulario-flotante textarea {
+  .formulario-flotante textarea,
+  .formulario-flotante select {
     width: 100%;
     padding: 8px;
     margin: 6px 0;
-    border-radius: 5px;
     border: 1px solid #ccc;
+    border-radius: 5px;
     font-family: inherit;
     font-size: 0.9rem;
   }
@@ -571,16 +571,63 @@ PANTALLA PARA MÓVIL
     width: 100%;
     background-color: #000;
     color: white;
-    padding: 8px;
+    padding: 10px;
     border: none;
     border-radius: 5px;
-    font-size: 1rem;
+    font-weight: bold;
     cursor: pointer;
     margin-top: 8px;
   }
   
   .formulario-flotante button:hover {
-    background-color: #333;
+    background-color: #222;
+  }
+  @media (max-width: 768px) {
+    .formulario-flotante {
+      width: 100%;
+      right: 0;
+      bottom: 0;
+      border-radius: 0;
+      box-shadow: none;
+      position: relative;
+      padding: 20px;
+    }
+  
+    .formulario-flotante h3 {
+      font-size: 1rem;
+    }
+  
+    .contenedor-articulos {
+      padding: 10px;
+    }
+  
+    .articulo {
+      font-size: 1rem;
+      padding: 10px;
+    }
+  
+    nav {
+      flex-direction: column;
+      height: auto;
+    }
+  
+    .nav-menu {
+      position: static;
+      display: block;
+      text-align: center;
+      height: auto;
+      background: none;
+    }
+  
+    .nav-menu li {
+      display: block;
+      margin: 10px 0;
+    }
+  
+    .reloj-cabecera {
+      text-align: center;
+      margin: 10px auto;
+    }
   }
   
 }
