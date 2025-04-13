@@ -17,18 +17,19 @@
       <img src="./imagenes/logo.jpg" alt="Logo" class="logo">
     </div>
     <input type="checkbox" id="check">
+    <ul class="nav-menu">
+        <li><a class="active" href="#">Inicio</a></li>
+        <li><a href="./paginas/deportes_page.html">Deportes</a></li>
+        <li><a href="./paginas/negocios_page.html">Negocios</a></li>
+        <li><a href="./paginas/noticias_page.html">Noticias</a></li>
+        <li><a href="./paginas/contacto.html">Contacto</a></li>
+    </ul>
+    <div id="fechaHora" class="reloj-cabecera"></div>
     <label for="check" class="bar-btn">
       <i class="fas fa-bars"></i>
     </label>
-    <ul class="nav-menu">
-      <li><a class="active" href="#">Inicio</a></li>
-      <li><a href="./paginas/deportes_page.html">Deportes</a></li>
-      <li><a href="./paginas/negocios_page.html">Negocios</a></li>
-      <li><a href="./paginas/noticias_page.html">Noticias</a></li>
-      <li><a href="paginas/contacto.html">Contacto</a></li>
-    </ul>
-    <div id="fechaHora" class="reloj-cabecera"></div>
-
+    
+    
     <!-- FORMULARIO FLOTANTE -->
     <section class="formulario-flotante">
       <form id="formArticulo">
@@ -66,44 +67,8 @@
     <p>© 2025 El Faro - Todos los derechos reservados.</p>
   </footer>
 
-  <!-- Script: Fecha y hora -->
-  <script>
-    function actualizarFechaHora() {
-      const ahora = new Date();
-      const opcionesFecha = {
-        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
-      };
-      const fecha = ahora.toLocaleDateString('es-CL', opcionesFecha);
-      const hora = ahora.toLocaleTimeString('es-CL', { hour12: false });
-      document.getElementById("fechaHora").textContent = `${fecha} - ${hora}`;
-    }
+  <script src="main.js"></script>
 
-    setInterval(actualizarFechaHora, 1000);
-    actualizarFechaHora();
-  </script>
-
-  <!-- Script: Guardar artículos -->
-  <script>
-    const form = document.getElementById('formArticulo');
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      const titulo = document.getElementById('tituloArticulo').value.trim();
-      const contenido = document.getElementById('contenidoArticulo').value.trim();
-      const categoria = document.getElementById('categoriaArticulo').value;
-
-      if (titulo && contenido && categoria) {
-        const articulo = { titulo, contenido, categoria };
-        const articulos = JSON.parse(localStorage.getItem('articulos')) || [];
-        articulos.push(articulo);
-        localStorage.setItem('articulos', JSON.stringify(articulos));
-
-        alert('Artículo guardado correctamente.');
-        form.reset();
-      }
-    });
-  </script>
 </body>
 
 </html>

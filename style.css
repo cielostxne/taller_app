@@ -98,13 +98,8 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   padding: 0 1rem;
   z-index: 30;
-
-
-
-
 }
 
 .nav-menu {
@@ -362,6 +357,114 @@ a:hover {
 MEDIA SECTION 
 */
 
+
+.formulario-flotante {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.formulario-flotante h3 {
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.formulario-flotante input,
+.formulario-flotante textarea,
+.formulario-flotante select {
+  width: 100%;
+  padding: 8px;
+  margin: 6px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+.formulario-flotante button {
+  width: 100%;
+  background-color: #000;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.formulario-flotante button:hover {
+  background-color: #222;
+}
+
+
+/* CONTACTO */
+
+.form-container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.btn-enviar {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-enviar:hover {
+  background-color: #0056b3;
+}
+
+.form-container body {
+
+
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+}
+
+
 /* 
 PANTALLA PARA MÓVIL
  */
@@ -422,6 +525,30 @@ PANTALLA PARA MÓVIL
     grid-template-columns: 1fr;
   }
 
+
+
+  .formulario-flotante h3 {
+    font-size: 1rem;
+  }
+
+  .contenedor-articulos {
+    padding: 10px;
+  }
+
+  .articulo {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+
+
+  .reloj-cabecera {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
 }
 
 /* 
@@ -430,7 +557,7 @@ PANTALLA PARA MÓVIL
 
 @media (width > 768px) {
 
-  
+
   .logo {
     margin-left: 0;
   }
@@ -519,168 +646,13 @@ PANTALLA PARA MÓVIL
     font-size: 0.9rem;
     font-weight: bold;
     padding: 8px 16px;
-    background-color: rgba(0, 0, 0, 0.85); /* Fondo más oscuro */
+    background-color: rgba(0, 0, 0, 0.85);
+    /* Fondo más oscuro */
     border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.9); /* Sombra negra intensa */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.9);
+    /* Sombra negra intensa */
     margin-left: auto;
     white-space: nowrap;
   }
 
 }
-  
-  /* Para pantallas pequeñas (menú móvil) */
-  @media (max-width: 768px) {
-    .reloj-cabecera {
-      margin: 10px auto;
-      display: block;
-      position: relative;
-      text-align: center;
-    }
-  }
-
-
-  .formulario-flotante {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 300px;
-    background-color: #ffffff;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    z-index: 999;
-  }
-  
-  .formulario-flotante h3 {
-    text-align: center;
-    font-size: 1.1rem;
-  }
-  
-  .formulario-flotante input,
-  .formulario-flotante textarea,
-  .formulario-flotante select {
-    width: 100%;
-    padding: 8px;
-    margin: 6px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-family: inherit;
-    font-size: 0.9rem;
-  }
-  
-  .formulario-flotante button {
-    width: 100%;
-    background-color: #000;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 8px;
-  }
-  
-  .formulario-flotante button:hover {
-    background-color: #222;
-  }
-
-
-  @media (max-width: 768px) {
-    .formulario-flotante {
-      width: 50%;
-      top: 50rem;
-      right: 0;
-      bottom: 0;
-      border-radius: 0;
-      box-shadow: none;
-      position: relative;
-      padding: 20px;
-    }
-  
-    .formulario-flotante h3 {
-      font-size: 1rem;
-    }
-  
-    .contenedor-articulos {
-      padding: 10px;
-    }
-  
-    .articulo {
-      font-size: 1rem;
-      padding: 10px;
-    }
-  
-
-  
-    .reloj-cabecera {
-      text-align: center;
-      margin: 10px auto;
-    }
-
-    
-  }
-  
-
-
-
-
-/* CONTACTO */
-
-.form-container {
-  max-width: 1000px;
-  margin: 2rem auto;
-  padding: 1.5rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: #fff;
-}
-
-.form-container h2 {
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-.form-group {
-  margin-bottom: 1rem;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-}
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
-}
-
-.btn-enviar {
-  display: block;
-  width: 100%;
-  padding: 0.75rem;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  font-size: 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.btn-enviar:hover {
-  background-color: #0056b3;
-}
-
-.form-container body {
-
-
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f2f2f2;
-  }
-
