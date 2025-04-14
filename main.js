@@ -182,5 +182,3 @@ window.onload = function () {
     contarArticulosEnSeccion();
 };
 
-
-
