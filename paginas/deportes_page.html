@@ -28,11 +28,39 @@
         <label for="check" class="bar-btn">
             <i class="fas fa-bars"></i>
         </label>
+        <!-- FORMULARIO FLOTANTE -->
+        <section class="formulario-flotante" id="formulario">
+            <button class="btn-cerrar" onclick="cerrarFormulario()">×</button>
+            <form id="formArticulo">
+                
+                <h3>Nuevo artículo</h3>
+                <input type="text" id="tituloArticulo" placeholder="Título" required>
+                <textarea id="contenidoArticulo" placeholder="Descripción" required></textarea>
+                <select id="categoriaArticulo" required>
+                    <option value="">Selecciona una categoría</option>
+                    <option value="Deportes">Deportes</option>
+                    <option value="Noticias">Noticias</option>
+                    <option value="Negocios">Negocios</option>
+                </select>
+                <button type="submit">Agregar</button>
+                
+            </form>
+            
+        </section>
+        <!-- BOTÓN FLOTANTE -->
+        <button class="btn-flotante" onclick="toggleFormulario()">
+            <i class="btn-flotante__icon">+</i>
+        </button>
     </nav>
 
     <section class="seccion">
+        <div class="contador">
+            <p>Total de artículos: <span id="contadorDeportes">0</span></p>
+        </div>
+        
+        
         <h2>Deportes</h2>
-
+        
         <div class="contenedor-articulos">
             
 

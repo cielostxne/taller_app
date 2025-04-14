@@ -28,38 +28,68 @@
     <label for="check" class="bar-btn">
       <i class="fas fa-bars"></i>
     </label>
+
+    <!-- FORMULARIO FLOTANTE -->
+    <section class="formulario-flotante" id="formulario">
+      <button class="btn-cerrar" onclick="cerrarFormulario()">×</button>
+      <form id="formArticulo">
+
+        <h3>Nuevo artículo</h3>
+        <input type="text" id="tituloArticulo" placeholder="Título" required>
+        <textarea id="contenidoArticulo" placeholder="Descripción" required></textarea>
+        <select id="categoriaArticulo" required>
+          <option value="">Selecciona una categoría</option>
+          <option value="Deportes">Deportes</option>
+          <option value="Noticias">Noticias</option>
+          <option value="Negocios">Negocios</option>
+        </select>
+        <button type="submit">Agregar</button>
+
+      </form>
+
+    </section>
+    <!-- BOTÓN FLOTANTE -->
+    <button class="btn-flotante" onclick="toggleFormulario()">
+      <i class="btn-flotante__icon">+</i>
+    </button>
   </nav>
 
   <section class="seccion">
+    <div class="contador">
+      <p>Total de artículos: <span id="contadorDeportes">0</span></p>
+    </div>
     <h2>Noticias</h2>
-
     <div class="contenedor-articulos">
-      
+
 
 
       <!-- Artículos estáticos originales -->
       <article class="articulo">
         <h3>Elon Musk proyecta un futuro dominado por robots.</h3>
         <p><strong>Categoría:</strong> Tecnología</p><br>
-        <p>Elon Musk asegura que los robots humanoides podrían revolucionar la economía, convirtiéndose en un mercado valuado en 10 billones de dólares. Las empresas tecnológicas ya están apostando fuerte por esta tendencia.</p>
+        <p>Elon Musk asegura que los robots humanoides podrían revolucionar la economía, convirtiéndose en un mercado
+          valuado en 10 billones de dólares. Las empresas tecnológicas ya están apostando fuerte por esta tendencia.</p>
       </article>
 
       <article class="articulo">
         <h3>Discos duros NVMe mecánicos por Seagate.</h3>
         <p><strong>Categoría:</strong> Hardware</p><br>
-        <p>Seagate sorprende al mundo con discos duros que combinan almacenamiento mecánico y la velocidad de NVMe, marcando un nuevo hito en el desarrollo de hardware.</p>
+        <p>Seagate sorprende al mundo con discos duros que combinan almacenamiento mecánico y la velocidad de NVMe,
+          marcando un nuevo hito en el desarrollo de hardware.</p>
       </article>
 
       <article class="articulo">
         <h3>Google lanza su chip cuántico Willow.</h3>
         <p><strong>Categoría:</strong> Software</p><br>
-        <p>El nuevo chip cuántico de Google promete resolver problemas complejos en minutos, revolucionando la computación avanzada y dejando atrás las capacidades de los superordenadores actuales.</p>
+        <p>El nuevo chip cuántico de Google promete resolver problemas complejos en minutos, revolucionando la
+          computación avanzada y dejando atrás las capacidades de los superordenadores actuales.</p>
       </article>
 
       <article class="articulo">
         <h3>Robots humanoides comienzan a llegar a los hogares.</h3>
         <p><strong>Categoría:</strong> Tendencias</p><br>
-        <p>La robótica doméstica da un salto con la llegada de robots humanoides accesibles al público, facilitando tareas del hogar y ofreciendo soluciones inteligentes.</p>
+        <p>La robótica doméstica da un salto con la llegada de robots humanoides accesibles al público, facilitando
+          tareas del hogar y ofreciendo soluciones inteligentes.</p>
       </article>
       <!-- Artículos dinámicos desde localStorage -->
       <div id="contenedorArticulosNoticias"></div>
@@ -73,7 +103,7 @@
   </footer>
 
   <script src="../main.js"></script>
- 
+
 </body>
 
 </html>

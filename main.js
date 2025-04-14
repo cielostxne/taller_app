@@ -1,7 +1,3 @@
-
-
-
-
 // Script: Fecha y hora
 function actualizarFechaHora() {
     const ahora = new Date();
@@ -16,23 +12,58 @@ function actualizarFechaHora() {
 setInterval(actualizarFechaHora, 1000);
 actualizarFechaHora();
 
+// Función para contar artículos en un contenedor específico
+function contarElementos(contenedorID, contadorID) {
+    // Obtener el contenedor por su ID
+    const contenedor = document.getElementById(contenedorID);
 
+    if (contenedor) {
+        // Contar los elementos <article> dentro del contenedor
+        const cantidadArticulos = contenedor.getElementsByClassName('articulo').length;
+
+        // Actualizar el contador en el DOM
+        const contadorElemento = document.getElementById(contadorID);
+        if (contadorElemento) {
+            contadorElemento.textContent = cantidadArticulos; // Mostrar la cantidad
+        }
+    } else {
+        console.warn(`Contenedor con ID "${contenedorID}" no encontrado.`);
+    }
+}
+
+// Función para contar artículos por categoría y actualizar contadores en el DOM
+function contarArticulosPorCategoria() {
+    const articulos = JSON.parse(localStorage.getItem('articulos')) || [];
+    const contadores = {
+        Deportes: 0,
+        Noticias: 0,
+        Negocios: 0
+    };
+
+    const contador = contarArticulosEnSeccion()
+    articulos.forEach(articulo => {
+        if (contadores[articulo.categoria] !== undefined) {
+            contadores[articulo.categoria] = contador;
+        }
+    });
+
+    // Actualizamos los contadores correspondientes
+    document.getElementById('contadorDeportes').textContent = contadores.Deportes || 0;
+    document.getElementById('contadorNoticias').textContent = contadores.Noticias || 0;
+    document.getElementById('contadorNegocios').textContent = contadores.Negocios || 0;
+}
 
 // Función para cargar artículos según la categoría
 function mostrarArticulosPorCategoria(categoria, contenedorID) {
     const articulos = JSON.parse(localStorage.getItem('articulos')) || [];
-
-    // Filtrar los artículos por la categoría seleccionada
     const articulosFiltrados = articulos.filter(a => a.categoria === categoria);
 
-    // Obtener el contenedor correspondiente
     const contenedor = document.getElementById(contenedorID);
     if (!contenedor) {
         console.warn(`Contenedor con ID "${contenedorID}" no encontrado.`);
-        return; // Salir si no existe el contenedor
+        return;
     }
 
-    // Limpiar el contenedor y agregar los artículos filtrados
     contenedor.innerHTML = "";
     articulosFiltrados.forEach(a => {
         const div = document.createElement('article');
@@ -42,13 +73,16 @@ function mostrarArticulosPorCategoria(categoria, contenedorID) {
             <p><strong>Categoría:</strong> ${a.categoria}</p><br>
             <p>${a.contenido}</p>
         `;
-        contenedor.prepend(div); // Agregar al inicio
+        contenedor.prepend(div);
     });
+
+    // Actualizar los contadores dinámicamente
+    contarArticulosPorCategoria();
 }
 
 // Función para mostrar artículos según la página actual
 function cargarArticulosPaginaActual() {
-    const paginaActual = window.location.pathname.split("/").pop(); // Nombre del archivo actual
+    const paginaActual = window.location.pathname.split("/").pop();
 
     let categoria, contenedorID;
     switch (paginaActual) {
@@ -65,55 +99,41 @@ function cargarArticulosPaginaActual() {
             contenedorID = 'contenedorArticulosNegocios';
             break;
         default:
-            console.warn('Página desconocida. No se cargaron artículos.');
-            return; // No hacer nada si la página no es reconocida
+            console.warn('Página desconocida.');
+            return;
     }
 
-    // Mostrar artículos filtrados por la categoría actual
     mostrarArticulosPorCategoria(categoria, contenedorID);
 }
 
-// Llama a la función al cargar la página
-cargarArticulosPaginaActual();
-
 // Evento para manejar el formulario flotante y agregar artículos dinámicamente
 document.getElementById('formArticulo').addEventListener('submit', function (e) {
-    e.preventDefault(); // Evitar la recarga de la página
+    e.preventDefault(); // Evitar el recargo de la página
 
     const titulo = document.getElementById('tituloArticulo').value.trim();
     const contenido = document.getElementById('contenidoArticulo').value.trim();
     const categoria = document.getElementById('categoriaArticulo').value;
 
     if (titulo && contenido && categoria) {
+        // Crear el nuevo artículo
         const nuevoArticulo = { titulo, contenido, categoria };
 
-        // Guardar el nuevo artículo en localStorage
+        // Obtener los artículos actuales desde localStorage
         const articulos = JSON.parse(localStorage.getItem('articulos')) || [];
-        articulos.unshift(nuevoArticulo); // Agregar al inicio
-        localStorage.setItem('articulos', JSON.stringify(articulos));
+        articulos.unshift(nuevoArticulo); // Añadir el nuevo artículo al inicio
+        localStorage.setItem('articulos', JSON.stringify(articulos)); // Guardar en localStorage
 
-        // Actualizar la visualización en la página actual
-        const paginaActual = window.location.pathname.split("/").pop();
-        let contenedorID;
-        if (paginaActual === 'deportes_page.html' && categoria === 'Deportes') {
-            contenedorID = 'contenedorArticulosDeportes';
-        } else if (paginaActual === 'noticias_page.html' && categoria === 'Noticias') {
-            contenedorID = 'contenedorArticulosNoticias';
-        } else if (paginaActual === 'negocios_page.html' && categoria === 'Negocios') {
-            contenedorID = 'contenedorArticulosNegocios';
-        }
+        alert("Artículo agregado correctamente");
 
-        if (contenedorID) {
-            mostrarArticulosPorCategoria(categoria, contenedorID);
-        }
+        // Volver a inicializar los contadores
+        inicializarContadores();
 
-        alert("Noticia Agregada")
-
-        // Cerrar y limpiar el formulario
-        cerrarFormulario();
+        // Limpiar el formulario
         this.reset();
+        cerrarFormulario();
     }
 });
+
 
 // Función para mostrar/ocultar el formulario flotante
 function toggleFormulario() {
@@ -125,3 +145,40 @@ function toggleFormulario() {
 function cerrarFormulario() {
     document.getElementById("formulario").style.display = "none";
 }
+
+// Función para contar todos los artículos dentro de ".contenedor-articulos"
+function contarArticulosEnSeccion() {
+    // Obtener el contenedor de artículos
+    const contenedor = document.querySelector(".contenedor-articulos");
+
+    // Verificar si el contenedor existe
+    if (contenedor) {
+        // Obtener todos los artículos dentro del contenedor
+        const articulos = contenedor.getElementsByClassName("articulo");
+
+        // Contar la cantidad de artículos
+        const cantidadArticulos = articulos.length;
+
+        // Actualizar el contador en el DOM (asegúrate de tener este elemento en el HTML)
+        const contadorElemento = document.getElementById("contadorTotalArticulos");
+        if (contadorElemento) {
+            contadorElemento.textContent = cantidadArticulos;
+        }
+
+        console.log(`Total de artículos en la sección: ${cantidadArticulos}`);
+        return cantidadArticulos;
+    } else {
+        console.warn('No se encontró el contenedor con la clase "contenedor-articulos".');
+    }
+}
+
+
+// Inicialización al cargar la página
+window.onload = function () {
+    cargarArticulosPaginaActual();
+    contarArticulosPorCategoria();
+    contarArticulosEnSeccion();
+};
+
+
+
