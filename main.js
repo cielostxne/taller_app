@@ -41,14 +41,17 @@ function contarArticulosPorCategoria() {
     };
 
     const contador = contarArticulosEnSeccion()
+
     articulos.forEach(articulo => {
         if (contadores[articulo.categoria] !== undefined) {
             contadores[articulo.categoria] = contador;
         }
     });
+    contadores[articulos.categoria] = contador;
 
     // Actualizamos los contadores correspondientes
-    document.getElementById('contadorDeportes').textContent = contadores.Deportes || 0;
+    document.getElementById('contadorDeportes').textContent = contador || 0;
+    
     document.getElementById('contadorNoticias').textContent = contadores.Noticias || 0;
     document.getElementById('contadorNegocios').textContent = contadores.Negocios || 0;
 }
@@ -125,8 +128,7 @@ document.getElementById('formArticulo').addEventListener('submit', function (e) 
 
         alert("Artículo agregado correctamente");
 
-        // Volver a inicializar los contadores
-        inicializarContadores();
+        
 
         // Limpiar el formulario
         this.reset();
@@ -170,8 +172,10 @@ function contarArticulosEnSeccion() {
     } else {
         console.warn('No se encontró el contenedor con la clase "contenedor-articulos".');
     }
+
 }
 
+contarArticulosEnSeccion();
 
 // Inicialización al cargar la página
 window.onload = function () {
