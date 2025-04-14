@@ -16,7 +16,6 @@
       <img src="../imagenes/logo.jpg" alt="Logo" class="logo">
     </div>
     <input type="checkbox" id="check">
-    <label for="check" class="bar-btn"><i class="fas fa-bars"></i></label>
     <ul class="nav-menu">
       <li><a href="../index.html">Inicio</a></li>
       <li><a href="./deportes_page.html">Deportes</a></li>
@@ -24,16 +23,18 @@
       <li><a href="./noticias_page.html">Noticias</a></li>
       <li><a href="./contacto.html">Contacto</a></li>
     </ul>
+    <div id="fechaHora" class="reloj-cabecera"></div>
+    <label for="check" class="bar-btn">
+      <i class="fas fa-bars"></i>
+    </label>
   </nav>
 
   <section class="seccion">
     <h2>Negocios</h2>
 
     <div class="contenedor-articulos">
-      <!-- Artículos dinámicos desde localStorage -->
-      <div id="contenedorArticulosNegocios"></div>
+      
 
-      <hr>
 
       <!-- Artículos estáticos originales -->
       <article class="articulo">
@@ -53,6 +54,8 @@
         <p><strong>Categoría:</strong> Bolsa de Valores</p><br>
         <p>Las acciones de Nvidia y Tesla experimentaron una caída significativa del 6% en marzo de 2025, lo que resultó en una pérdida combinada de 250,000 millones de dólares en su capitalización de mercado. Esta caída se produjo en medio de un clima de incertidumbre económica global, impulsada por las políticas comerciales del presidente Trump, que incluyeron nuevos aranceles a las importaciones y restricciones a empresas tecnológicas chinas. Los inversores temen que las tensiones comerciales afecten a la demanda de productos clave, como los chips de inteligencia artificial de Nvidia y los vehículos eléctricos de Tesla.</p>
       </article>
+      <!-- Artículos dinámicos desde localStorage -->
+      <div id="contenedorArticulosNegocios"></div>
     </div>
 
     <h2>¿Por qué caen los mercados?</h2>
@@ -74,20 +77,8 @@
   <footer>
     <p>&copy; 2025 El Faro - Todos los derechos reservados.</p>
   </footer>
-
-  <script>
-    const contenedor = document.getElementById('contenedorArticulosNegocios');
-    const articulos = JSON.parse(localStorage.getItem('articulos')) || [];
-
-    const articulosNegocios = articulos.filter(a => a.categoria === 'negocios');
-
-    articulosNegocios.forEach(a => {
-      const div = document.createElement('div');
-      div.classList.add('articulo');
-      div.innerHTML = `<h3>${a.titulo}</h3><p>${a.contenido}</p>`;
-      contenedor.appendChild(div);
-    });
-  </script>
+  <script src="../main.js"></script>
+  
 </body>
 
 </html>
