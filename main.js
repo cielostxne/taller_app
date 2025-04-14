@@ -50,10 +50,8 @@ function contarArticulosPorCategoria() {
     contadores[articulos.categoria] = contador;
 
     // Actualizamos los contadores correspondientes
-    document.getElementById('contadorDeportes').textContent = contador || 0;
-    
-    document.getElementById('contadorNoticias').textContent = contadores.Noticias || 0;
-    document.getElementById('contadorNegocios').textContent = contadores.Negocios || 0;
+    document.getElementById('contadorPost').textContent = contador || 0;
+
 }
 
 // Función para cargar artículos según la categoría
