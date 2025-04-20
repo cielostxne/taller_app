@@ -8,33 +8,59 @@
     <link rel="stylesheet" href="./style.css">
     <script src="https://kit.fontawesome.com/2cb25f2c39.js"></script>
     <link rel="icon" href="./imagenes/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
 </head>
 
 <body>
     <!-- MENU DE NAVEGACION -->
-    <nav>
-        <div class="nav__imagen">
-            <img src="./imagenes/logo.jpg" alt="Logo" class="logo">
+    
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand is-flex is-align-items-center is-justify-content-space-between">
+
+            <a class="navbar-item" href="./index.html">
+                <img src="./imagenes/logo.jpg" alt="Logo" class="logo">
+            </a>
+
+            <!-- Reloj centrado solo en mobile -->
+            <div class="navbar-item reloj-mobile">
+                <div id="fechaHora" class="reloj-cabecera">domingo, 20 de abril de 2025 - 17:02:13</div>
+            </div>
+
+
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+
+
         </div>
-        <input type="checkbox" id="check">
-        <ul class="nav-menu">
-            <li><a class="active" href="#">Inicio</a></li>
-            <li><a href="./paginas/deportes_page.html">Deportes</a></li>
-            <li><a href="./paginas/negocios_page.html">Negocios</a></li>
-            <li><a href="./paginas/noticias_page.html">Noticias</a></li>
-            <li><a href="./paginas/contacto.html">Contacto</a></li>
-        </ul>
-        <div id="fechaHora" class="reloj-cabecera"></div>
-        <label for="check" class="bar-btn">
-            <i class="fas fa-bars"></i>
-        </label>
 
 
-        <!-- FORMULARIO FLOTANTE -->
+
+        <div id="navbarMenu" class="navbar-menu">
+
+            <div class="navbar-start">
+                <a class="navbar-item" href="./paginas/deportes_page.html">Deportes</a>
+                <a class="navbar-item " href="./paginas/negocios_page.html">Negocios</a>
+                <a class="navbar-item " href="./paginas/noticias_page.html">Noticias</a>
+                <a class="navbar-item" href="./paginas/contacto.html">Contacto</a>
+            </div>
+
+        </div>
+
+        <!-- Reloj a la derecha en desktop -->
+        <div class="navbar-item reloj-desktop">
+            <div id="fechaHora" class="reloj-cabecera">domingo, 20 de abril de 2025 - 17:02:13</div>
+        </div>
+
+
+
         <section class="formulario-flotante" id="formulario">
-            <button class="btn-cerrar" onclick="cerrarFormulario()">×</button>
+            <button class="btn-cerrar" onclick="cerrarFormulario()">
+                <i class="fas fa-times"></i>
+            </button>
             <form id="formArticulo">
-                
                 <h3>Nuevo artículo</h3>
                 <input type="text" id="tituloArticulo" placeholder="Título" required>
                 <textarea id="contenidoArticulo" placeholder="Descripción" required></textarea>
@@ -45,15 +71,14 @@
                     <option value="Negocios">Negocios</option>
                 </select>
                 <button type="submit">Agregar</button>
-                
-            </form>
-            
-        </section>
-        <!-- BOTÓN FLOTANTE -->
-        <button class="btn-flotante" onclick="toggleFormulario()">
-            <i class="btn-flotante__icon">+</i>
-        </button>
 
+            </form>
+
+        </section>
+
+        <button class="btn-flotante" onclick="toggleFormulario()">
+            <i class="fas fa-plus"></i>
+        </button>
     </nav>
 
     <!-- Encabezado principal -->

@@ -122,7 +122,7 @@ header {
 NAV VAR SECTION
  */
 
-nav {
+/* nav {
   height: 90px;
   max-width: auto;
   margin: 0;
@@ -135,6 +135,26 @@ nav {
   background: var(--background-dark);
   color: var(--color-blue-zodiac-100);
 
+} */
+nav {
+  width: 100%;
+}
+
+.navbar {
+  padding: 1rem;
+}
+
+
+/* En pantallas grandes, el reloj está a la derecha */
+.reloj-mobile {
+  display: none !important;  /* Oculto en desktop */
+}
+
+
+
+
+.reloj-mobile{
+  display: none !important;
 }
 
 nav>ul>li>a {
@@ -178,7 +198,7 @@ nav>ul>li>a {
 }
 
 .logo {
-  width: 30px;
+  width: 100%;
   margin-left: 10px;
 
 }
@@ -676,7 +696,14 @@ PANTALLA PARA MÓVIL
     padding: 10px;
   }
 
-
+  .reloj-desktop{
+    display: none !important;
+  }
+  .reloj-mobile{
+    display: flex !important;
+    justify-content: center;
+    top: 0;
+  }
 
   .btn-flotante {
     position: fixed;
@@ -703,8 +730,6 @@ PANTALLA PARA MÓVIL
   }
 
 
-
-
   /* Formulario flotante */
   .formulario-flotante {
     position: fixed;
@@ -718,13 +743,7 @@ PANTALLA PARA MÓVIL
     /* Oculto por defecto */
   }
 
-  .reloj-cabecera {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    font-size: 0.7rem;
-  }
+  
 
 
   button.btn-cerrar {
@@ -772,6 +791,8 @@ PANTALLA PARA MÓVIL
 
 }
 
+
+
 /* 
   PANTALLA PARA PC
 */
@@ -796,7 +817,13 @@ PANTALLA PARA MÓVIL
     justify-content: center;
 
   }
-
+  .reloj-desktop{
+    display: flex !important;
+  }
+  .reloj-mobile{
+    display: none !important;
+  }
+ 
 
   .bar-btn {
     display: none;
@@ -867,19 +894,7 @@ PANTALLA PARA MÓVIL
     color: #f0f0f0;
   }
 
-  .reloj-cabecera {
-    color: #ffffff;
-    font-size: 0.9rem;
-    font-weight: bold;
-    padding: 8px 16px;
-    background-color: rgba(0, 0, 0, 0.85);
-    /* Fondo más oscuro */
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.9);
-    /* Sombra negra intensa */
-    margin-left: auto;
-    white-space: nowrap;
-  }
+  
 
   .btn-flotante {
     position: fixed;
@@ -934,5 +949,19 @@ PANTALLA PARA MÓVIL
     color: wheat;
   }
 
+
+}
+
+@media (min-width: 894px) and (max-width: 1023px) {
+  .reloj-desktop{
+    display: none !important;
+  }
+  .reloj-mobile{
+    display: flex !important;
+    justify-content: center;
+    top: 0;
+
+  }
+  
 
 }

@@ -1,3 +1,15 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const burger = document.querySelector('.navbar-burger');
+    const menu = document.querySelector('#navbarMenu');
+
+    burger.addEventListener('click', () => {
+        // Alternar la clase is-active en el botón y el menú
+        burger.classList.toggle('is-active');
+        menu.classList.toggle('is-active');
+    });
+});
+
+
 // Script: Fecha y hora
 function actualizarFechaHora() {
     const ahora = new Date();
