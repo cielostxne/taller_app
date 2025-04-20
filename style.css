@@ -65,7 +65,7 @@ body {
 }
 
 header {
-
+  display: flex;
   width: 100%;
   height: 100vh;
   /* Ajustado para ocupar todo el alto de la pantalla */
@@ -73,7 +73,7 @@ header {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  display: flex;
+
   /* Flexbox para alinear contenido */
   flex-direction: column;
   justify-content: center;
@@ -82,6 +82,16 @@ header {
 
 }
 
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
 
 .img__fondo {
   position: absolute;
@@ -122,20 +132,7 @@ header {
 NAV VAR SECTION
  */
 
-/* nav {
-  height: 90px;
-  max-width: auto;
-  margin: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 1rem;
-  z-index: 30;
-  background: var(--background-dark);
-  color: var(--color-blue-zodiac-100);
 
-} */
 nav {
   width: 100%;
 }
@@ -147,13 +144,14 @@ nav {
 
 /* En pantallas grandes, el reloj está a la derecha */
 .reloj-mobile {
-  display: none !important;  /* Oculto en desktop */
+  display: none !important;
+  /* Oculto en desktop */
 }
 
 
 
 
-.reloj-mobile{
+.reloj-mobile {
   display: none !important;
 }
 
@@ -161,41 +159,6 @@ nav>ul>li>a {
   color: var(--color-blue-zodiac-100)
 }
 
-.nav-menu {
-  position: absolute;
-  width: 100%;
-  height: 0vh;
-  top: 6rem;
-  background: rgba(60, 60, 60, 0.95);
-  text-align: center;
-  transition: all 0.5s;
-}
-
-.nav-menu li {
-  display: none;
-  line-height: 30px;
-  margin: 50px 0;
-  transition: all 0.5s;
-  width: 100%;
-}
-
-.nav-menu li a {
-  color: #867171;
-  font-size: 20px;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-
-.nav-menu li a.active,
-.nav-menu li a:hover {
-  color: var(--color-blue-zodiac-300);
-  transition: 0.3s;
-}
-
-.nav-menu li a:hover {
-  font-weight: bold;
-  text-decoration: none;
-}
 
 .logo {
   width: 100%;
@@ -215,18 +178,12 @@ nav>ul>li>a {
   display: none;
 }
 
-#check:checked~.nav-menu {
-  height: 100vh;
-  padding: 0;
-}
 
-#check:checked~.nav-menu li {
-  display: block;
-  padding: 0;
-}
+
+
 
 .banner-text {
-  padding-top: 10px;
+  padding-top: 0px;
   text-align: center;
   z-index: 20;
 }
@@ -631,16 +588,9 @@ PANTALLA PARA MÓVIL
     color: white;
   }
 
-  .nav-menu {
-    background: #222;
-    top: 4.29rem;
-    left: 0;
-    bottom: 0;
-  }
+  
 
-  .nav-menu li a {
-    color: white;
-  }
+  
 
 
 
@@ -696,16 +646,18 @@ PANTALLA PARA MÓVIL
     padding: 10px;
   }
 
-  .reloj-desktop{
+  .reloj-desktop {
     display: none !important;
   }
-  .reloj-mobile{
+
+  .reloj-mobile {
     display: flex !important;
     justify-content: center;
     top: 0;
   }
-  .reloj-mobile > .reloj-cabecera {
-   font-size: 0.7rem;
+
+  .reloj-mobile>.reloj-cabecera {
+    font-size: 0.7rem;
   }
 
   .btn-flotante {
@@ -746,7 +698,7 @@ PANTALLA PARA MÓVIL
     /* Oculto por defecto */
   }
 
-  
+
 
 
   button.btn-cerrar {
@@ -820,50 +772,24 @@ PANTALLA PARA MÓVIL
     justify-content: center;
 
   }
-  .reloj-desktop{
+
+  .reloj-desktop {
     display: flex !important;
   }
-  .reloj-mobile{
+
+  .reloj-mobile {
     display: none !important;
   }
- 
+
 
   .bar-btn {
     display: none;
   }
 
-  .nav-menu {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    position: relative;
-    gap: 0;
-    height: 0;
-    top: 0;
-    background: inherit;
-    text-align: right;
-    margin-right: 2rem;
-    padding: 0;
-    gap: 0;
+  
 
-  }
+  
 
-  .nav-menu li {
-    display: flex;
-    justify-content: center;
-
-    line-height: normal;
-    margin: 0;
-    padding: 0;
-  }
-
-  .nav-menu li a {
-    display: flex;
-    font-size: 1rem;
-    padding: 0;
-    margin: 0;
-    color: var(--color-blue-zodiac-100);
-  }
 
   /* ---------------------------- */
 
@@ -897,7 +823,7 @@ PANTALLA PARA MÓVIL
     color: #f0f0f0;
   }
 
-  
+
 
   .btn-flotante {
     position: fixed;
@@ -956,15 +882,16 @@ PANTALLA PARA MÓVIL
 }
 
 @media (min-width: 894px) and (max-width: 1023px) {
-  .reloj-desktop{
+  .reloj-desktop {
     display: none !important;
   }
-  .reloj-mobile{
+
+  .reloj-mobile {
     display: flex !important;
     justify-content: center;
     top: 0;
-    
+
   }
-  
+
 
 }
