@@ -704,6 +704,9 @@ PANTALLA PARA MÓVIL
     justify-content: center;
     top: 0;
   }
+  .reloj-mobile > .reloj-cabecera {
+   font-size: 0.7rem;
+  }
 
   .btn-flotante {
     position: fixed;
@@ -960,7 +963,7 @@ PANTALLA PARA MÓVIL
     display: flex !important;
     justify-content: center;
     top: 0;
-
+    
   }
   
 
