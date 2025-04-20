@@ -5,12 +5,44 @@
    2. APLICAR FONDO GRIS (#f5f5f5) *Los artículos en blanco tienen su propia sección
 */
 
-* {
+:root {
+  --fuente_principal: 'Poppins', sans-serif;
   --background: #f5f5f5;
+  --background-dark: #18181b;
+  --color-texto-dark: #f4f4f5;
+  --color-texto: #333;
+
+
+  --color-bunker-50: #f7f7f8;
+  --color-bunker-100: #eeeef0;
+  --color-bunker-200: #d9d9de;
+  --color-bunker-300: #b8b9c1;
+  --color-bunker-400: #91939f;
+  --color-bunker-500: #737584;
+  --color-bunker-600: #5d5e6c;
+  --color-bunker-700: #4c4d58;
+  --color-bunker-800: #41414b;
+  --color-bunker-900: #393941;
+  --color-bunker-950: #18181b;
+
+  --color-blue-zodiac-50: #f1f6fd;
+  --color-blue-zodiac-100: #dfeafa;
+  --color-blue-zodiac-200: #c7daf6;
+  --color-blue-zodiac-300: #a0c3f0;
+  --color-blue-zodiac-400: #74a2e6;
+  --color-blue-zodiac-500: #5382de;
+  --color-blue-zodiac-600: #3e66d2;
+  --color-blue-zodiac-700: #3553c0;
+  --color-blue-zodiac-800: #30469d;
+  --color-blue-zodiac-900: #2c3e7c;
+  --color-blue-zodiac-950: #19203e;
+}
+
+
+* {
   /* Fondo general */
   --articulo-fondo: #ffffff;
   /* Fondo de los artículos */
-  --fuente_principal: "Poppins", sans-serif;
   --color-texto: #333;
 
 
@@ -22,8 +54,8 @@
 }
 
 body {
-  font-family: var(--fuente_principal);
-  background-color: var(--background);
+  font-family: var(--fuente_principal) !important;
+  background-color: var(--background-dark);
   color: var(--color-texto);
 
 
@@ -100,7 +132,13 @@ nav {
   align-items: center;
   padding: 0 1rem;
   z-index: 30;
-  
+  background: var(--background-dark);
+  color: var(--color-blue-zodiac-100);
+
+}
+
+nav>ul>li>a {
+  color: var(--color-blue-zodiac-100)
 }
 
 .nav-menu {
@@ -130,7 +168,7 @@ nav {
 
 .nav-menu li a.active,
 .nav-menu li a:hover {
-  color: #000000;
+  color: var(--color-blue-zodiac-300);
   transition: 0.3s;
 }
 
@@ -191,13 +229,24 @@ nav {
 
 
 /* Estilos para la sección de deportes */
+.hero-gradient {
+  background: linear-gradient(to right, var(--background-dark), var(--background-dark));
+  color: var(--color-blue-zodiac-950);
+}
+
+.card-shadow {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
 .seccion {
-  padding: 1rem;
+
+  padding: 0rem;
   text-align: center;
-  background-color: var(--background);
+  background-color: var(--background-dark);
   /* border-radius: 10px; */
   color: var(--color-texto);
 }
+
 
 h2,
 h3 {
@@ -279,32 +328,59 @@ button:hover {
 
 }
 
-/* ESTILOS DE LOS ARTÍCULOS */
-.articulo {
-  background-color: var(--articulo-fondo);
-  padding: 20px;
-  border-radius: 10px;
-  transition: all 0.3s ease-in-out;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.432);
+
+
+
+/*
+---------- BULMA SECTION Card ------------
+*/
+.columns {
+  gap: 10px;
+  /* Espaciado entre columnas */
   cursor: pointer;
 }
 
-/* 4. AL UBICAR EL MOUSE ENCIMA DE GRILLA
-(HOVER) TENEMOS FONDO NEGRO Y LETRA BLANCA */
-.articulo:hover {
-  background-color: black;
-  color: white;
-  transform: scale(1.03);
+.is-one-third {
+  background-color: #18181b !important;
+  color: var(--color-blue-zodiac-200) !important;
+  font-weight: 100;
 }
 
-.articulo:hover p {
-  color: white;
-  transform: scale(1.03);
+.is-one-third>p {
+  text-align: left;
 }
 
-.articulo:hover h3 {
+article>.title {
+  color: var(--color-blue-zodiac-50) !important;
+}
+
+.is-one-third:hover {
+  transform: scale(1.03);
+  cursor: pointer;
+}
+
+
+.button p:hover {
+  color: var(--articulo-fondo);
+}
+
+.button:hover span {
   color: white;
 }
+
+
+.button {
+  margin-bottom: 1rem;
+}
+
+.box {
+  box-shadow: 0 0 0 1px var(--background-dark), 0 10px 15px -3px rgba(0, 0, 0, 0.744), 0 4px 6px -4px rgba(0, 0, 0, .05) !important;
+}
+
+
+/*
+--------------------------------------
+*/
 
 .media-container {
   position: relative;
@@ -414,18 +490,21 @@ MEDIA SECTION
 /* CONTACTO */
 
 .form-container {
-  margin: 2rem auto;
+  margin: 1rem auto;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
   padding: 1.5rem;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-blue-zodiac-100);
   border-radius: 8px;
-  background-color: #fff;
-  color: black;
+  background-color: var(--background-dark);
+  color: var(--color-blue-zodiac-100);
   width: 45%;
 }
 
 .form-container h2 {
   text-align: center;
   margin-bottom: 1rem;
+  color: var(--color-blue-zodiac-100);
 }
 
 .form-group {
@@ -436,6 +515,7 @@ MEDIA SECTION
   display: block;
   margin-bottom: 0.5rem;
   font-weight: bold;
+  text-align: start;
 }
 
 .form-group input,
@@ -445,6 +525,8 @@ MEDIA SECTION
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 1rem;
+  background-color: transparent;
+  color: var(--color-blue-zodiac-100);
 }
 
 input[type="text"] {
@@ -494,17 +576,7 @@ input[type="text"] {
 
 }
 
-.contador>p {
-  background-color: var(--articulo-fondo);
-  border-color: #000;
-  box-shadow: 3px 5px 1px #6d030348;
-  width: 250px;
-  text-align: center;
-  font-weight: 700;
-  border-radius: 10px;
-  padding: 1rem 1rem;
-  color: var(--color-texto);
-}
+
 
 input[type="text"] {
   border: none;
@@ -629,7 +701,7 @@ PANTALLA PARA MÓVIL
     text-align: center;
     /* Centra el texto en el interior del ícono */
   }
-  
+
 
 
 
@@ -695,6 +767,7 @@ PANTALLA PARA MÓVIL
 
   .form-container {
     width: 90%;
+    margin-top: 1rem;
   }
 
 }
@@ -735,7 +808,7 @@ PANTALLA PARA MÓVIL
     align-items: center;
     position: relative;
     gap: 0;
-    height: 100px;
+    height: 0;
     top: 0;
     background: inherit;
     text-align: right;
@@ -759,6 +832,7 @@ PANTALLA PARA MÓVIL
     font-size: 1rem;
     padding: 0;
     margin: 0;
+    color: var(--color-blue-zodiac-100);
   }
 
   /* ---------------------------- */

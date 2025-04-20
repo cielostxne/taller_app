@@ -68,14 +68,18 @@ function mostrarArticulosPorCategoria(categoria, contenedorID) {
     contenedor.innerHTML = "";
     articulosFiltrados.forEach(a => {
         const div = document.createElement('article');
-        div.classList.add('articulo');
         div.innerHTML = `
-            <h3>${a.titulo}</h3>
-            <p><strong>Categoría:</strong> ${a.categoria}</p><br>
-            <p>${a.contenido}</p>
+            <article class="is-one-third box">
+                <h3 class="title is-4">${a.titulo}</h3>
+                <button class="button">
+                    <p><span class="subtitle">Categoría:</span> ${a.categoria}</p>
+                </button>
+                <p>${a.contenido}</p>
+            </article>
         `;
         contenedor.prepend(div);
     });
+
 
     // Actualizar los contadores dinámicamente
     contarArticulosPorCategoria();
@@ -126,11 +130,16 @@ document.getElementById('formArticulo').addEventListener('submit', function (e) 
 
         alert("Artículo agregado correctamente");
 
-        
+
 
         // Limpiar el formulario
         this.reset();
         cerrarFormulario();
+        // Recargar la página después del alert
+        setTimeout(() => {
+            location.reload();
+        }, 500); // Pequeño retraso para que el usuario vea la alerta
+
     }
 });
 
@@ -154,7 +163,7 @@ function contarArticulosEnSeccion() {
     // Verificar si el contenedor existe
     if (contenedor) {
         // Obtener todos los artículos dentro del contenedor
-        const articulos = contenedor.getElementsByClassName("articulo");
+        const articulos = contenedor.getElementsByClassName("is-one-third box");
 
         // Contar la cantidad de artículos
         const cantidadArticulos = articulos.length;

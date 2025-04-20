@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../style.css">
   <script src="https://kit.fontawesome.com/2cb25f2c39.js"></script>
   <link rel="icon" href="../imagenes/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
 </head>
 
 <body>
@@ -31,7 +32,9 @@
 
     <!-- FORMULARIO FLOTANTE -->
     <section class="formulario-flotante" id="formulario">
-      <button class="btn-cerrar" onclick="cerrarFormulario()">×</button>
+      <button class="btn-cerrar" onclick="cerrarFormulario()">
+        <i class="fas fa-times"></i>
+      </button>
       <form id="formArticulo">
 
         <h3>Nuevo artículo</h3>
@@ -50,44 +53,54 @@
     </section>
     <!-- BOTÓN FLOTANTE -->
     <button class="btn-flotante" onclick="toggleFormulario()">
-      <i class="btn-flotante__icon">+</i>
+      <i class="fas fa-plus"></i>
     </button>
   </nav>
 
   <section class="seccion">
     <div class="contador">
-      <p>Total de artículos: <span id="contadorPost">0</span></p>
+      <div class="button">
+        <p>Total de artículos: <span id="contadorPost">0</span></p>
+      </div>
     </div>
-    <h2>Noticias</h2>
+    <h2 class="title">Noticias</h2>
     <div class="contenedor-articulos">
 
 
 
       <!-- Artículos estáticos originales -->
-      <article class="articulo">
-        <h3>Elon Musk proyecta un futuro dominado por robots.</h3>
-        <p><strong>Categoría:</strong> Tecnología</p><br>
+      <article class="is-one-third box">
+        <h3 class="title is-4">Elon Musk proyecta un futuro dominado por robots.</h3>
+        <button class="button">
+          <p><span class="subtitle">Categoría:</span> Noticias</p>
+        </button>
         <p>Elon Musk asegura que los robots humanoides podrían revolucionar la economía, convirtiéndose en un mercado
           valuado en 10 billones de dólares. Las empresas tecnológicas ya están apostando fuerte por esta tendencia.</p>
       </article>
 
-      <article class="articulo">
-        <h3>Discos duros NVMe mecánicos por Seagate.</h3>
-        <p><strong>Categoría:</strong> Hardware</p><br>
+      <article class="is-one-third box">
+        <h3 class="title is-4">Discos duros NVMe mecánicos por Seagate.</h3>
+        <button class="button">
+          <p><span class="subtitle">Categoría:</span> Noticias</p>
+        </button>
         <p>Seagate sorprende al mundo con discos duros que combinan almacenamiento mecánico y la velocidad de NVMe,
           marcando un nuevo hito en el desarrollo de hardware.</p>
       </article>
 
-      <article class="articulo">
-        <h3>Google lanza su chip cuántico Willow.</h3>
-        <p><strong>Categoría:</strong> Software</p><br>
+      <article class="is-one-third box">
+        <h3 class="title is-4">Google lanza su chip cuántico Willow.</h3>
+        <button class="button">
+          <p><span class="subtitle">Categoría:</span> Noticias</p>
+        </button>
         <p>El nuevo chip cuántico de Google promete resolver problemas complejos en minutos, revolucionando la
           computación avanzada y dejando atrás las capacidades de los superordenadores actuales.</p>
       </article>
 
-      <article class="articulo">
-        <h3>Robots humanoides comienzan a llegar a los hogares.</h3>
-        <p><strong>Categoría:</strong> Tendencias</p><br>
+      <article class="is-one-third box">
+        <h3 class="title is-4">Robots humanoides comienzan a llegar a los hogares.</h3>
+        <button class="button">
+          <p><span class="subtitle">Categoría:</span> Noticias</p>
+        </button>
         <p>La robótica doméstica da un salto con la llegada de robots humanoides accesibles al público, facilitando
           tareas del hogar y ofreciendo soluciones inteligentes.</p>
       </article>
@@ -95,7 +108,7 @@
       <div id="contenedorArticulosNoticias"></div>
     </div>
 
-    <a href="../index.html" class="btn-volver">Volver al Menú</a>
+    <a href="../index.html" class="button">Volver al Menú</a>
   </section>
 
   <footer>
