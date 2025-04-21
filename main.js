@@ -18,7 +18,11 @@ function actualizarFechaHora() {
     };
     const fecha = ahora.toLocaleDateString('es-CL', opcionesFecha);
     const hora = ahora.toLocaleTimeString('es-CL', { hour12: false });
+    
+
     document.getElementById("fechaHora").textContent = `${fecha} - ${hora}`;
+    document.getElementById("fechaHoraDesktop").textContent = `${fecha} - ${hora}`;
+
 }
 
 setInterval(actualizarFechaHora, 1000);
