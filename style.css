@@ -903,3 +903,52 @@ PANTALLA PARA MÓVIL
 
 
 }
+
+
+.section.seccion-con-fondo {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-image: url('./imagenes/faro2.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  
+}
+
+.section.seccion-con-fondo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* capa oscura encima */
+  z-index: 0;
+  
+}
+
+.section.seccion-con-fondo .container {
+  position: relative;
+  z-index: 1;
+  color: white; /* si lo necesitas para que el texto sea legible */
+}
+
+footer.footer {
+  padding: 2rem 1rem 1.5rem;
+}
+
+footer.footer .columns {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+footer.footer .column {
+  margin-bottom: 0.75rem;
+}
+
+footer.footer ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+footer.footer ul li {
+  margin-bottom: 0.25rem;
+}
