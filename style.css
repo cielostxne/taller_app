@@ -549,9 +549,11 @@ input[type="text"] {
   text-align: end;
   justify-items: end;
   border-radius: 10rem;
-
 }
-
+.contador >.button{
+  margin-right: 1rem;
+  margin-top: 1rem;
+}
 
 
 input[type="text"] {
@@ -586,11 +588,6 @@ PANTALLA PARA MÓVIL
     background-color: #222;
     color: white;
   }
-
-  
-
-  
-
 
 
 
@@ -736,12 +733,24 @@ PANTALLA PARA MÓVIL
   .contador>p {
     font-size: 0.7rem;
     width: 10rem;
+    
   }
 
+  .contador > .button{
+    font-size: 0.001rem;
+    font-weight: 200;
+    padding: 0.5rem 0.6rem;
+    margin-top: 0.3rem;
+  }
+  .button > p {
+    font-size: 1rem !important;
+  }
   .form-container {
     width: 90%;
     margin-top: 1rem;
   }
+
+
 
 }
 
