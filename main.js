@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// Script: Fecha y hora
 function actualizarFechaHora() {
     const ahora = new Date();
     const opcionesFecha = {
@@ -18,11 +17,17 @@ function actualizarFechaHora() {
     };
     const fecha = ahora.toLocaleDateString('es-CL', opcionesFecha);
     const hora = ahora.toLocaleTimeString('es-CL', { hour12: false });
-    
 
-    document.getElementById("fechaHora").textContent = `${fecha} - ${hora}`;
-    document.getElementById("fechaHoraDesktop").textContent = `${fecha} - ${hora}`;
+    const elementoFechaHora = document.getElementById("fechaHora");
+    const elementoFechaHoraDesktop = document.getElementById("fechaHoraDesktop");
 
+    if (elementoFechaHora) {
+        elementoFechaHora.textContent = `${fecha} - ${hora}`;
+    }
+
+    if (elementoFechaHoraDesktop) {
+        elementoFechaHoraDesktop.textContent = `${fecha} - ${hora}`;
+    }
 }
 
 setInterval(actualizarFechaHora, 1000);
@@ -127,49 +132,6 @@ function cargarArticulosPaginaActual() {
     mostrarArticulosPorCategoria(categoria, contenedorID);
 }
 
-// Evento para manejar el formulario flotante y agregar artículos dinámicamente
-document.getElementById('formArticulo').addEventListener('submit', function (e) {
-    e.preventDefault(); // Evitar el recargo de la página
-
-    const titulo = document.getElementById('tituloArticulo').value.trim();
-    const contenido = document.getElementById('contenidoArticulo').value.trim();
-    const categoria = document.getElementById('categoriaArticulo').value;
-
-    if (titulo && contenido && categoria) {
-        // Crear el nuevo artículo
-        const nuevoArticulo = { titulo, contenido, categoria };
-
-        // Obtener los artículos actuales desde localStorage
-        const articulos = JSON.parse(localStorage.getItem('articulos')) || [];
-        articulos.unshift(nuevoArticulo); // Añadir el nuevo artículo al inicio
-        localStorage.setItem('articulos', JSON.stringify(articulos)); // Guardar en localStorage
-
-        alert("Artículo agregado correctamente");
-
-
-
-        // Limpiar el formulario
-        this.reset();
-        cerrarFormulario();
-        // Recargar la página después del alert
-        setTimeout(() => {
-            location.reload();
-        }, 500); // Pequeño retraso para que el usuario vea la alerta
-
-    }
-});
-
-
-// Función para mostrar/ocultar el formulario flotante
-function toggleFormulario() {
-    const formulario = document.getElementById("formulario");
-    formulario.style.display = (formulario.style.display === "none" || formulario.style.display === "") ? "block" : "none";
-}
-
-// Función para cerrar el formulario flotante
-function cerrarFormulario() {
-    document.getElementById("formulario").style.display = "none";
-}
 
 // Función para contar todos los artículos dentro de ".contenedor-articulos"
 function contarArticulosEnSeccion() {
@@ -197,8 +159,95 @@ function contarArticulosEnSeccion() {
     }
 
 }
-
 contarArticulosEnSeccion();
+
+
+function mostrarNotificacion(mensaje) {
+    const notificacion = document.createElement('div');
+    notificacion.classList.add('notification', 'is-success');
+
+    
+    notificacion.innerHTML += mensaje;
+    notificacion.style.fontSize = "0.8rem"
+    notificacion.style.position = "fixed";
+    notificacion.style.top = "20px";
+    notificacion.style.right = "20px";
+    notificacion.style.zIndex = "1000";
+
+    document.body.appendChild(notificacion);
+
+    // **Darle tiempo para mostrarse antes de recargar**
+    setTimeout(() => {
+        notificacion.remove();
+    }, 5000);
+}
+
+
+
+// Evento para manejar el formulario flotante y agregar artículos dinámicamente
+document.getElementById('formArticulo').addEventListener('submit', function (e) {
+    e.preventDefault(); // Evitar el recargo de la página
+
+    const titulo = document.getElementById('tituloArticulo').value.trim();
+    const contenido = document.getElementById('contenidoArticulo').value.trim();
+    const categoria = document.getElementById('categoriaArticulo').value;
+
+
+
+    if (titulo && contenido && categoria) {
+
+        // Crear el nuevo artículo
+        const nuevoArticulo = { titulo, contenido, categoria };
+
+        // Obtener los artículos actuales desde localStorage
+        const articulos = JSON.parse(localStorage.getItem('articulos')) || [];
+        articulos.unshift(nuevoArticulo); // Añadir el nuevo artículo al inicio
+        localStorage.setItem('articulos', JSON.stringify(articulos)); // Guardar en localStorage
+
+        mostrarNotificacion("✅ ¡Artículo agregado correctamente!"); // Mostrar notificación en lugar de alert
+
+
+
+
+        // Limpiar el formulario
+        this.reset();
+        cerrarFormulario();
+        // Recargar la página después del alert
+        setTimeout(() => {
+            location.reload();
+        }, 5000);
+
+    }
+});
+
+
+// Función para mostrar/ocultar el formulario flotante
+function toggleFormulario() {
+    const formulario = document.getElementById("formulario");
+    formulario.style.display = (formulario.style.display === "none" || formulario.style.display === "") ? "block" : "none";
+}
+
+// Función para cerrar el formulario flotante
+function cerrarFormulario() {
+    document.getElementById("formulario").style.display = "none";
+}
+
+
+
+
+
+document.querySelectorAll('.breadcrumb a').forEach(enlace => {
+    enlace.addEventListener('click', function (event) {
+        event.preventDefault(); // Evita el salto brusco
+        const destino = document.querySelector(this.getAttribute('href'));
+        if (destino) {
+            destino.scrollIntoView({
+                behavior: "smooth", // Efecto de desplazamiento suave
+                block: "start" // Asegura que la sección llegue bien al inicio de la vista
+            });
+        }
+    });
+});
 
 // Inicialización al cargar la página
 window.onload = function () {
@@ -206,4 +255,6 @@ window.onload = function () {
     contarArticulosPorCategoria();
     contarArticulosEnSeccion();
 };
+
+
 

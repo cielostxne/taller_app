@@ -36,6 +36,7 @@
   --color-blue-zodiac-800: #30469d;
   --color-blue-zodiac-900: #2c3e7c;
   --color-blue-zodiac-950: #19203e;
+  
 }
 
 
@@ -45,12 +46,14 @@
   /* Fondo de los artículos */
   --color-texto: #333;
 
-
   padding: 0;
   margin: 0;
   text-decoration: none;
   list-style: none;
   box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -160,6 +163,8 @@ nav>ul>li>a {
 }
 
 
+
+
 .logo {
   width: 100%;
 
@@ -185,6 +190,7 @@ nav>ul>li>a {
   padding-top: 0px;
   text-align: center;
   z-index: 20;
+  margin-top: -15rem !important;
 }
 
 .banner-text h1 {
@@ -203,6 +209,12 @@ nav>ul>li>a {
 
 /*--------------------------------------*/
 
+
+.breadcrumb{
+ 
+  z-index: 40 !important;
+  padding-top: 1rem;
+}
 
 /* Estilos para la sección de deportes */
 .hero-gradient {
@@ -412,9 +424,7 @@ a:hover {
   /* Pone en negrita */
 }
 
-/* 
-MEDIA SECTION 
-*/
+
 
 
 .formulario-flotante {
@@ -749,7 +759,17 @@ PANTALLA PARA MÓVIL
     width: 90%;
     margin-top: 1rem;
   }
+  .seccion-con-fondo{
+    margin-top: 0rem;
+    padding-top: 4rem !important ;
+    padding-bottom: 4rem !important;
+  }
 
+  .banner-text{
+    padding-top: 13rem;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 
 
 }
@@ -905,9 +925,9 @@ PANTALLA PARA MÓVIL
 }
 
 
-.section.seccion-con-fondo {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+.seccion-con-fondo {
+  padding-top: 0rem;
+  padding-bottom: 0rem;
   background-image: url('./imagenes/faro2.jpg'); 
   background-size: cover;
   background-position: center;

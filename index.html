@@ -2,86 +2,94 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El Faro</title>
-    <link rel="stylesheet" href="./style.css">
-    <script src="https://kit.fontawesome.com/2cb25f2c39.js"></script>
-    <link rel="icon" href="./imagenes/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Faro</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://kit.fontawesome.com/2cb25f2c39.js"></script>
+  <link rel="icon" href="./imagenes/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
 </head>
 
 <body>
-    <!-- MENU DE NAVEGACION -->
-    
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand is-flex is-align-items-center is-justify-content-space-between">
+  <!-- MENU DE NAVEGACION -->
 
-            <a class="navbar-item" href="./index.html">
-                <img src="./imagenes/logo.jpg" alt="Logo" class="logo">
-            </a>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand is-flex is-align-items-center is-justify-content-space-between">
 
-            <!-- Reloj centrado solo en mobile -->
-            <div class="navbar-item reloj-mobile">
-                <div id="fechaHora" class="reloj-cabecera">domingo, 20 de abril de 2025 - 17:02:13</div>
-            </div>
+      <a class="navbar-item" href="./index.html">
+        <img src="./imagenes/logo.jpg" alt="Logo" class="logo">
+      </a>
 
-
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
+      <!-- Reloj centrado solo en mobile -->
+      <div class="navbar-item reloj-mobile">
+        <div id="fechaHora" class="reloj-cabecera">domingo, 20 de abril de 2025 - 17:02:13</div>
+      </div>
 
 
-        </div>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
 
 
-
-        <div id="navbarMenu" class="navbar-menu">
-
-            <div class="navbar-start">
-                <a class="navbar-item" href="./paginas/deportes_page.html">Deportes</a>
-                <a class="navbar-item " href="./paginas/negocios_page.html">Negocios</a>
-                <a class="navbar-item " href="./paginas/noticias_page.html">Noticias</a>
-                <a class="navbar-item" href="./paginas/contacto.html">Contacto</a>
-                <a class="navbar-item" href="./paginas/avisos.html">Avisos</a>
-            </div>
-
-        </div>
-
-        <!-- Reloj a la derecha en desktop -->
-        <div class="navbar-item reloj-desktop">
-            <div id="fechaHoraDesktop" class="reloj-cabecera">domingo, 20 de abril de 2025 - 17:02:13</div>
-        </div>
+    </div>
 
 
 
-    </nav>
+    <div id="navbarMenu" class="navbar-menu">
 
-    <!-- Encabezado principal -->
-    <header>
-        
-        <div class="img__fondo">
-            <div class="lamina"></div>
-        </div>
-        <div class="banner-text container">
-            <h1>Bienvenidos a "El Faro"</h1>
-            <p>
-                ¡Gracias por visitar <strong>El Faro</strong>, tu nuevo periódico digital de confianza! Nuestro objetivo
-                es mantenerte informado de manera clara, rápida y actualizada sobre los acontecimientos más importantes
-                de la actualidad.
-            </p>
-        </div>
-    </header>
+      <div class="navbar-start">
+        <a class="navbar-item" href="./paginas/deportes_page.html">Deportes</a>
+        <a class="navbar-item " href="./paginas/negocios_page.html">Negocios</a>
+        <a class="navbar-item " href="./paginas/noticias_page.html">Noticias</a>
+        <a class="navbar-item" href="./paginas/contacto.html">Contacto</a>
+        <a class="navbar-item" href="./paginas/avisos.html">Avisos</a>
+      </div>
 
- <!-- ARTÍCULOS DESTACADOS -->
- <section class="section seccion-con-fondo">
-    
+    </div>
+
+    <!-- Reloj a la derecha en desktop -->
+    <div class="navbar-item reloj-desktop">
+      <div id="fechaHoraDesktop" class="reloj-cabecera">domingo, 20 de abril de 2025 - 17:02:13</div>
+    </div>
+
+
+
+  </nav>
+
+  <nav class="breadcrumb is-right has-bullet-separator" aria-label="breadcrumbs">
+    <ul>
+      <li><a href="#articulos-destacados">Artículos Destacados</a></li>
+      <li><a href="#mas-articulos">Más articulos</a></li>
+    </ul>
+  </nav>
+
+  <!-- Encabezado principal -->
+  <header>
+
+    <div class="img__fondo">
+      <div class="lamina"></div>
+    </div>
+
+    <div class="banner-text container">
+      <h1>Bienvenidos a "El Faro"</h1>
+      <p>
+        ¡Gracias por visitar <strong>El Faro</strong>, tu nuevo periódico digital de confianza! Nuestro objetivo
+        es mantenerte informado de manera clara, rápida y actualizada sobre los acontecimientos más importantes
+        de la actualidad.
+      </p>
+    </div>
+  </header>
+
+  <!-- ARTÍCULOS DESTACADOS -->
+  <section class="section seccion-con-fondo" id="articulos-destacados">
+
     <div class="container">
       <h2 class="title is-3 has-text-centered">📰 Artículos Destacados</h2>
       <div class="columns is-centered is-multiline">
-  
+
         <div class="column is-5">
           <div class="box">
             <h3 class="title is-4">Argentina clasifica con autoridad</h3>
@@ -90,7 +98,7 @@
             <a class="button is-link mt-2" href="./paginas/deportes_page.html">Leer más</a>
           </div>
         </div>
-  
+
         <div class="column is-5">
           <div class="box">
             <h3 class="title is-4">Los Esports cada día con más fuerza</h3>
@@ -99,103 +107,103 @@
             <a class="button is-link mt-2" href="./paginas/deportes_page.html">Leer más</a>
           </div>
         </div>
-  
-      </div>
-    </div>
-  </section>
-  
-  
-  <!-- MÁS ARTÍCULOS -->
-  <section class="section seccion-con-fondo">
-    <div class="container">
-      <h2 class="title is-4">📚 Más artículos</h2>
-      <div class="columns is-multiline">
-  
-        <!-- Artículo compacto -->
-        <div class="column is-one-third">
-          <div class="box is-shadowless">
-            <h4 class="title is-5">Chile otra vez con la calculadora...</h4>
-            <p class="subtitle is-7">Deportes</p>
-            <p class="is-size-7">La selección chilena sigue luchando por un lugar en el Mundial...</p>
-            <a class="is-link is-size-7" href="./paginas/deportes_page.html">Leer más</a>
-          </div>
-        </div>
-  
-        <div class="column is-one-third">
-          <div class="box is-shadowless">
-            <h4 class="title is-5">Las PYMES pueden aprovechar oportunidades en Mercado Público con estos pasos</h4>
-            <p class="subtitle is-7">Negocios</p>
-            <p class="is-size-7">El portal Innova ofrece una guía para que las pequeñas y medianas empresas (PYMES) encuentren oportunidades de negocio en el...</p>
-            <a class="is-link is-size-7" href="./paginas/negocios_page.html">Leer más</a>
-          </div>
-        </div>
-  
-        <div class="column is-one-third">
-          <div class="box is-shadowless">
-            <h4 class="title is-5">Elon Musk proyecta un futuro dominado por robots.</h4>
-            <p class="subtitle is-7">Noticias</p>
-            <p class="is-size-7">Elon Musk asegura que los robots humanoides podrían revolucionar la ...</p>
-            <a class="is-link is-size-7" href="./paginas/noticias_page.html">Leer más</a>
-          </div>
-        </div>
-  
-      </div>
-    </div>
-  </section>
-     
-    <!-- Footer -->
-    <footer class="footer has-background-dark has-text-light">
-        <div class="columns is-multiline is-variable is-6" style="max-width: 1200px; margin: 0 auto;">
-          
-          <!-- Logo y descripción -->
-          <div class="column is-4">
-            <h2 class="title is-5 has-text-white">🌅 El Faro</h2>
-            <p>El Faro es tu portal confiable para noticias deportivas, esports y mucho más. Encendemos la luz de la información.</p>
-          </div>
-      
-          <!-- Navegación rápida -->
-          <div class="column is-3">
-            <h3 class="title is-6 has-text-white">Navegación</h3>
-            <ul>
-              <li><a href="index.html" class="has-text-light">Inicio</a></li>
-              <li><a href="./paginas/deportes_page.html" class="has-text-light">Deportes</a></li>
-              <li><a href="./paginas/negocios_page.html" class="has-text-light">Negocios</a></li>
-              <li><a href="./paginas/noticias_page.html" class="has-text-light">Noticias</a></li>
-              <li><a href="./paginas/contacto.html" class="has-text-light">Contacto</a></li>
-              <li><a href="./paginas/avisos.html" class="has-text-light">Avisos</a></li>
-            </ul>
-          </div>
-      
-          <!-- Redes sociales -->
-          <div class="column is-2">
-            <h3 class="title is-6 has-text-white">Síguenos</h3>
-            <ul>
-              <li><a href="#" class="has-text-light">Instagram</a></li>
-              <li><a href="#" class="has-text-light">Facebook</a></li>
-              <li><a href="#" class="has-text-light">Twitter/X</a></li>
-            </ul>
-          </div>
-      
-          <!-- Contacto -->
-          <div class="column is-3">
-            <h3 class="title is-6 has-text-white">Contacto</h3>
-            <p><strong>Email:</strong> contacto@elfaro.cl</p>
-            <p><strong>Ubicación:</strong> Santiago, Chile</p>
-          </div>
-      
-        </div>
-      
-        <hr class="has-background-grey-lighter" style="margin: 1rem auto; max-width: 1200px;">
-      
-        <div class="content has-text-centered has-text-grey-light" style="max-width: 1200px; margin: 0 auto;">
-          <p>© 2025 <strong>El Faro</strong> - Todos los derechos reservados.</p>
-          <p>Diseñado con ❤️ por Nuestro Grupo</p>
-        </div>
-      </footer>
-      
-      
 
-    <script src="main.js"></script>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- MÁS ARTÍCULOS -->
+  <section class="section seccion-con-fondo py-10" id="mas-articulos">
+    <div class="container">
+      <h2 class="title is-3">📚 Más artículos</h2>
+      <div class="columns is-multiline">
+
+        <!-- Artículo compacto -->
+
+        <div class="box is-one-quarter">
+          <h4 class="title is-5">Chile otra vez con la calculadora...</h4>
+          <p class="subtitle is-7">Deportes</p>
+          <p class="is-size-7">La selección chilena sigue luchando por un lugar en el Mundial...</p>
+          <a class="is-link is-size-7" href="./paginas/deportes_page.html">Leer más</a>
+        </div>
+
+
+
+        <div class="box is-one-quarter">
+          <h4 class="title is-5">Las PYMES pueden aprovechar oportunidades en Mercado Público con estos pasos</h4>
+          <p class="subtitle is-7">Negocios</p>
+          <p class="is-size-7">El portal Innova ofrece una guía para que las pequeñas y medianas empresas (PYMES)
+            encuentren oportunidades de negocio en el...</p>
+          <a class="is-link is-size-7" href="./paginas/negocios_page.html">Leer más</a>
+        </div>
+
+
+        <div class="box is-one-quarter">
+          <h4 class="title is-5">Elon Musk proyecta un futuro dominado por robots.</h4>
+          <p class="subtitle is-7">Noticias</p>
+          <p class="is-size-7">Elon Musk asegura que los robots humanoides podrían revolucionar la ...</p>
+          <a class="is-link is-size-7" href="./paginas/noticias_page.html">Leer más</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer has-background-dark has-text-light">
+    <div class="columns is-multiline is-variable is-6" style="max-width: 1200px; margin: 0 auto;">
+
+      <!-- Logo y descripción -->
+      <div class="column is-4">
+        <h2 class="title is-5 has-text-white">🌅 El Faro</h2>
+        <p>El Faro es tu portal confiable para noticias deportivas, esports y mucho más. Encendemos la luz de la
+          información.</p>
+      </div>
+
+      <!-- Navegación rápida -->
+      <div class="column is-3">
+        <h3 class="title is-6 has-text-white">Navegación</h3>
+        <ul>
+          <li><a href="index.html" class="has-text-light">Inicio</a></li>
+          <li><a href="./paginas/deportes_page.html" class="has-text-light">Deportes</a></li>
+          <li><a href="./paginas/negocios_page.html" class="has-text-light">Negocios</a></li>
+          <li><a href="./paginas/noticias_page.html" class="has-text-light">Noticias</a></li>
+          <li><a href="./paginas/contacto.html" class="has-text-light">Contacto</a></li>
+          <li><a href="./paginas/avisos.html" class="has-text-light">Avisos</a></li>
+        </ul>
+      </div>
+
+      <!-- Redes sociales -->
+      <div class="column is-2">
+        <h3 class="title is-6 has-text-white">Síguenos</h3>
+        <ul>
+          <li><a href="#" class="has-text-light">Instagram</a></li>
+          <li><a href="#" class="has-text-light">Facebook</a></li>
+          <li><a href="#" class="has-text-light">Twitter/X</a></li>
+        </ul>
+      </div>
+
+      <!-- Contacto -->
+      <div class="column is-3">
+        <h3 class="title is-6 has-text-white">Contacto</h3>
+        <p><strong>Email:</strong> contacto@elfaro.cl</p>
+        <p><strong>Ubicación:</strong> Santiago, Chile</p>
+      </div>
+
+    </div>
+
+    <hr class="has-background-grey-lighter" style="margin: 1rem auto; max-width: 1200px;">
+
+    <div class="content has-text-centered has-text-grey-light" style="max-width: 1200px; margin: 0 auto;">
+      <p>© 2025 <strong>El Faro</strong> - Todos los derechos reservados.</p>
+      <p>Diseñado con ❤️ por Nuestro Grupo</p>
+    </div>
+  </footer>
+
+
+
+  <script src="main.js"></script>
 
 </body>
 
