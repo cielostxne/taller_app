@@ -17,7 +17,7 @@
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand is-flex is-align-items-center is-justify-content-space-between">
 
-      <a class="navbar-item" href="../index.html">
+      <a class="navbar-item" href="../index.php">
         <img src="../imagenes/logo.jpg" alt="Logo" class="logo">
       </a>
 
@@ -41,11 +41,12 @@
     <div id="navbarMenu" class="navbar-menu">
 
       <div class="navbar-start">
-        <a class="navbar-item" href="../paginas/deportes_page.html">Deportes</a>
-        <a class="navbar-item is-active" href="../paginas/negocios_page.html">Negocios</a>
-        <a class="navbar-item" href="../paginas/noticias_page.html">Noticias</a>
-        <a class="navbar-item" href="./contacto.html">Contacto</a>
-        <a class="navbar-item" href="../paginas/avisos.html">Avisos</a>
+        <a class="navbar-item" href="../paginas/deportes_page.php">Deportes</a>
+        <a class="navbar-item is-active" href="../paginas/negocios_page.php">Negocios</a>
+        <a class="navbar-item" href="../paginas/noticias_page.php">Noticias</a>
+        <a class="navbar-item" href="../paginas/contacto.php">Contacto</a>
+        <a class="navbar-item" href="../paginas/avisos.php">Avisos</a>
+        <a class="navbar-item" href="../paginas/registro.php">Registro</a>
       </div>
 
     </div>
@@ -156,58 +157,8 @@
     <a href="../index.html" class="button">Volver al Menú</a>
   </section>
 
-    <!-- Footer -->
-    <footer class="footer has-background-dark has-text-light">
-      <div class="columns is-multiline is-variable is-6" style="max-width: 1200px; margin: 0 auto;">
-        
-        <!-- Logo y descripción -->
-        <div class="column is-4">
-          <h2 class="title is-5 has-text-white">🌅 El Faro</h2>
-          <p>El Faro es tu portal confiable para noticias deportivas, esports y mucho más. Encendemos la luz de la información.</p>
-        </div>
-    
-        <!-- Navegación rápida -->
-        <div class="column is-3">
-          <h3 class="title is-6 has-text-white">Navegación</h3>
-          <ul>
-            <li><a href="../index.html" class="has-text-light">Inicio</a></li>
-            <li><a href="../paginas/deportes_page.html" class="has-text-light">Deportes</a></li>
-            <li><a href="../paginas/negocios_page.html" class="has-text-light">Negocios</a></li>
-            <li><a href="../paginas/noticias_page.html" class="has-text-light">Noticias</a></li>
-            <li><a href="../paginas/contacto.html" class="has-text-light">Contacto</a></li>
-            <li><a href="../paginas/avisos.html" class="has-text-light">Avisos</a></li>
-          </ul>
-        </div>
-    
-        <!-- Redes sociales -->
-        <div class="column is-2">
-          <h3 class="title is-6 has-text-white">Síguenos</h3>
-          <ul>
-            <li><a href="#" class="has-text-light">Instagram</a></li>
-            <li><a href="#" class="has-text-light">Facebook</a></li>
-            <li><a href="#" class="has-text-light">Twitter/X</a></li>
-          </ul>
-        </div>
-    
-        <!-- Contacto -->
-        <div class="column is-3">
-          <h3 class="title is-6 has-text-white">Contacto</h3>
-          <p><strong>Email:</strong> contacto@elfaro.cl</p>
-          <p><strong>Ubicación:</strong> Santiago, Chile</p>
-        </div>
-    
-      </div>
-    
-      <hr class="has-background-grey-lighter" style="margin: 1rem auto; max-width: 1200px;">
-    
-      <div class="content has-text-centered has-text-grey-light" style="max-width: 1200px; margin: 0 auto;">
-        <p>© 2025 <strong>El Faro</strong> - Todos los derechos reservados.</p>
-        <p>Diseñado con ❤️ por Nuestro Grupo</p>
-      </div>
-    </footer>
-    
+  <?php include('../app/views/partials/footer.php'); ?>
+
   <script src="../main.js"></script>
-
 </body>
-
 </html>
