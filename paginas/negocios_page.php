@@ -93,9 +93,6 @@
     <h2 class="title">Negocios</h2>
 
     <div class="contenedor-articulos">
-
-
-
       <!-- Artículos estáticos originales -->
       <article class="is-one-third box">
         <h3 class="title is-4">Las PYMES pueden aprovechar oportunidades en Mercado Público con estos pasos</h3>
@@ -139,6 +136,9 @@
       <!-- Artículos dinámicos desde localStorage -->
       <div id="contenedorArticulosNegocios"></div>
     </div>
+
+
+    <!-- VIDEO SECTION -->
 
     <h2 class="title">¿Por qué caen los mercados?</h2>
     <div class="media-container">

@@ -36,7 +36,7 @@
   --color-blue-zodiac-800: #30469d;
   --color-blue-zodiac-900: #2c3e7c;
   --color-blue-zodiac-950: #19203e;
-  
+
 }
 
 
@@ -52,6 +52,7 @@
   list-style: none;
   box-sizing: border-box;
 }
+
 html {
   scroll-behavior: smooth;
 }
@@ -95,6 +96,72 @@ header {
   height: 100vh;
   text-align: center;
 }
+
+/*
+FORMULARIO REGISTRO UIX
+*/
+.container-registro{
+  position: relative;
+  top: -190px;
+}
+
+.container-registro form {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.input {
+  max-width: 500px !important;
+  height: 50px !important;
+  padding: 15px !important;
+  box-sizing: border-box;
+
+}
+
+/*-----------------*/
+
+/*
+FORMULARIO CONTACTO UIX
+*/
+.container-contacto{
+  position: relative;
+  top: -150px;
+}
+.container-contacto form {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.textarea {
+  max-width: 500px !important;
+  min-width: 0 !important;
+  height: 150px !important;
+  padding: 15px !important;
+  box-sizing: border-box;
+}
+
+.control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.control-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-top: 1rem;
+}
+.control-btn button{
+  max-width: 200px;
+  padding: 1rem;
+}
+/*------------------------*/
 
 .img__fondo {
   position: absolute;
@@ -210,8 +277,8 @@ nav>ul>li>a {
 /*--------------------------------------*/
 
 
-.breadcrumb{
- 
+.breadcrumb {
+
   z-index: 40 !important;
   padding-top: 1rem;
 }
@@ -560,7 +627,8 @@ input[type="text"] {
   justify-items: end;
   border-radius: 10rem;
 }
-.contador >.button{
+
+.contador>.button {
   margin-right: 1rem;
   margin-top: 1rem;
 }
@@ -705,8 +773,6 @@ PANTALLA PARA MÓVIL
   }
 
 
-
-
   button.btn-cerrar {
     top: 0.1rem;
     right: 1rem;
@@ -743,34 +809,50 @@ PANTALLA PARA MÓVIL
   .contador>p {
     font-size: 0.7rem;
     width: 10rem;
-    
+
   }
 
-  .contador > .button{
+  .contador>.button {
     font-size: 0.001rem;
     font-weight: 200;
     padding: 0.5rem 0.6rem;
     margin-top: 0.3rem;
   }
-  .button > p {
+
+  .button>p {
     font-size: 1rem !important;
   }
+
   .form-container {
     width: 90%;
     margin-top: 1rem;
   }
-  .seccion-con-fondo{
+
+  .seccion-con-fondo {
     margin-top: 0rem;
-    padding-top: 4rem !important ;
+    padding-top: 4rem !important;
     padding-bottom: 4rem !important;
   }
 
-  .banner-text{
+  .banner-text {
     padding-top: 13rem;
     padding-left: 10px;
     padding-right: 10px;
   }
 
+  .container-registro {
+    top: -90px;
+  }
+  .container-contacto{
+    top: -78px;
+  }
+  .container-contacto h2{
+    font-size: 1.5rem;
+  }
+  .control-btn button{
+    max-width: 200px;
+    padding: 0.5rem 1rem;
+  }
 
 }
 
@@ -814,9 +896,9 @@ PANTALLA PARA MÓVIL
     display: none;
   }
 
-  
 
-  
+
+
 
 
   /* ---------------------------- */
@@ -928,27 +1010,29 @@ PANTALLA PARA MÓVIL
 .seccion-con-fondo {
   padding-top: 0rem;
   padding-bottom: 0rem;
-  background-image: url('./imagenes/faro2.jpg'); 
+  background-image: url('./imagenes/faro2.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   position: relative;
-  
+
 }
 
 .section.seccion-con-fondo::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.4); /* capa oscura encima */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* capa oscura encima */
   z-index: 0;
-  
+
 }
 
 .section.seccion-con-fondo .container {
   position: relative;
   z-index: 1;
-  color: white; /* si lo necesitas para que el texto sea legible */
+  color: white;
+  /* si lo necesitas para que el texto sea legible */
 }
 
 footer.footer {

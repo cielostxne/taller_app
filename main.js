@@ -7,8 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
         burger.classList.toggle('is-active');
         menu.classList.toggle('is-active');
     });
+
+
 });
 
+//-----------------------
+// HORA
 
 function actualizarFechaHora() {
     const ahora = new Date();
@@ -33,6 +37,77 @@ function actualizarFechaHora() {
 setInterval(actualizarFechaHora, 1000);
 actualizarFechaHora();
 
+//------------------------
+
+// MOSTRAR ARTICULOS
+
+// Función para cargar artículos según la categoría
+function mostrarArticulosPorCategoria(categoria, contenedorID) {
+    const articulos = JSON.parse(localStorage.getItem('articulos')) || [];
+    const articulosFiltrados = articulos.filter(a => a.categoria === categoria);
+
+    const contenedor = document.getElementById(contenedorID);
+    if (!contenedor) {
+        console.warn(`Contenedor con ID "${contenedorID}" no encontrado.`);
+        return;
+    }
+
+    contenedor.innerHTML = "";
+
+    
+
+
+    articulosFiltrados.forEach(a => {
+        const div = document.createElement('article');
+        div.innerHTML = `
+            <article class="is-one-third box">
+                <h3 class="title is-4">${a.titulo}</h3>
+                <button class="button">
+                    <p><span class="subtitle">Categoría:</span> ${a.categoria}</p>
+                </button>
+                <p>${a.contenido}</p>
+            </article>
+        `;
+        contenedor.prepend(div);
+    });
+
+
+    // Actualizar los contadores dinámicamente
+    contarArticulosPorCategoria();
+}
+
+
+// Función para mostrar artículos según la página actual
+function cargarArticulosPaginaActual() {
+    const paginaActual = window.location.pathname.split("/").pop();
+
+    let categoria, contenedorID;
+    switch (paginaActual) {
+        case 'deportes_page.php':
+            categoria = 'Deportes';
+            contenedorID = 'contenedorArticulosDeportes';
+            break;
+        case 'noticias_page.php':
+            categoria = 'Noticias';
+            contenedorID = 'contenedorArticulosNoticias';
+            break;
+        case 'negocios_page.php':
+            categoria = 'Negocios';
+            contenedorID = 'contenedorArticulosNegocios';
+            break;
+        default:
+            console.warn('Página desconocida.');
+            return;
+    }
+
+    mostrarArticulosPorCategoria(categoria, contenedorID);
+}
+
+//------------------------
+/*
+CONTAR DINAMICAMENTE
+*/
+
 // Función para contar artículos en un contenedor específico
 function contarElementos(contenedorID, contadorID) {
     // Obtener el contenedor por su ID
@@ -51,6 +126,7 @@ function contarElementos(contenedorID, contadorID) {
         console.warn(`Contenedor con ID "${contenedorID}" no encontrado.`);
     }
 }
+
 
 // Función para contar artículos por categoría y actualizar contadores en el DOM
 function contarArticulosPorCategoria() {
@@ -74,64 +150,6 @@ function contarArticulosPorCategoria() {
     document.getElementById('contadorPost').textContent = contador || 0;
 
 }
-
-// Función para cargar artículos según la categoría
-function mostrarArticulosPorCategoria(categoria, contenedorID) {
-    const articulos = JSON.parse(localStorage.getItem('articulos')) || [];
-    const articulosFiltrados = articulos.filter(a => a.categoria === categoria);
-
-    const contenedor = document.getElementById(contenedorID);
-    if (!contenedor) {
-        console.warn(`Contenedor con ID "${contenedorID}" no encontrado.`);
-        return;
-    }
-
-    contenedor.innerHTML = "";
-    articulosFiltrados.forEach(a => {
-        const div = document.createElement('article');
-        div.innerHTML = `
-            <article class="is-one-third box">
-                <h3 class="title is-4">${a.titulo}</h3>
-                <button class="button">
-                    <p><span class="subtitle">Categoría:</span> ${a.categoria}</p>
-                </button>
-                <p>${a.contenido}</p>
-            </article>
-        `;
-        contenedor.prepend(div);
-    });
-
-
-    // Actualizar los contadores dinámicamente
-    contarArticulosPorCategoria();
-}
-
-// Función para mostrar artículos según la página actual
-function cargarArticulosPaginaActual() {
-    const paginaActual = window.location.pathname.split("/").pop();
-
-    let categoria, contenedorID;
-    switch (paginaActual) {
-        case 'deportes_page.html':
-            categoria = 'Deportes';
-            contenedorID = 'contenedorArticulosDeportes';
-            break;
-        case 'noticias_page.html':
-            categoria = 'Noticias';
-            contenedorID = 'contenedorArticulosNoticias';
-            break;
-        case 'negocios_page.html':
-            categoria = 'Negocios';
-            contenedorID = 'contenedorArticulosNegocios';
-            break;
-        default:
-            console.warn('Página desconocida.');
-            return;
-    }
-
-    mostrarArticulosPorCategoria(categoria, contenedorID);
-}
-
 
 // Función para contar todos los artículos dentro de ".contenedor-articulos"
 function contarArticulosEnSeccion() {
@@ -161,12 +179,13 @@ function contarArticulosEnSeccion() {
 }
 contarArticulosEnSeccion();
 
+//------------------------
 
 function mostrarNotificacion(mensaje) {
     const notificacion = document.createElement('div');
     notificacion.classList.add('notification', 'is-success');
 
-    
+
     notificacion.innerHTML += mensaje;
     notificacion.style.fontSize = "0.8rem"
     notificacion.style.position = "fixed";
@@ -182,6 +201,32 @@ function mostrarNotificacion(mensaje) {
     }, 5000);
 }
 
+//-------------------------
+/*
+Cargar datos del formulario dinamicamente
+*/
+
+// Función para agregar un nuevo artículo al DOM según la categoría
+function agregarArticuloAlDOM(articulo) {
+    const contenedor = {
+        'Deportes': document.getElementById('contenedorArticulosDeportes'),
+        'Noticias': document.getElementById('contenedorArticulosNoticias'),
+        'Negocios': document.getElementById('contenedorArticulosNegocios')
+    }[articulo.categoria]; // Selecciona el contenedor adecuado según la categoría
+
+    if (contenedor) {
+        const articuloElemento = document.createElement('article');
+        articuloElemento.className = 'is-one-third box';
+        articuloElemento.innerHTML = `
+            <h3 class="title is-4">${articulo.titulo}</h3>
+            <button class="button">
+                <p><span class="subtitle">Categoría:</span> ${articulo.categoria}</p>
+            </button>
+            <p>${articulo.contenido}</p>
+        `;
+        contenedor.prepend(articuloElemento); // Añade el artículo al inicio del contenedor
+    }
+}
 
 
 // Evento para manejar el formulario flotante y agregar artículos dinámicamente
@@ -201,11 +246,14 @@ document.getElementById('formArticulo').addEventListener('submit', function (e) 
 
         // Obtener los artículos actuales desde localStorage
         const articulos = JSON.parse(localStorage.getItem('articulos')) || [];
+
         articulos.unshift(nuevoArticulo); // Añadir el nuevo artículo al inicio
         localStorage.setItem('articulos', JSON.stringify(articulos)); // Guardar en localStorage
 
         mostrarNotificacion("✅ ¡Artículo agregado correctamente!"); // Mostrar notificación en lugar de alert
 
+
+        agregarArticuloAlDOM(nuevoArticulo);
 
 
 
@@ -213,13 +261,32 @@ document.getElementById('formArticulo').addEventListener('submit', function (e) 
         this.reset();
         cerrarFormulario();
         // Recargar la página después del alert
-        setTimeout(() => {
-            location.reload();
-        }, 5000);
+
 
     }
 });
 
+// Cargar todos los artículos al iniciar la página
+document.addEventListener('DOMContentLoaded', cargarArticulos);
+
+// Función para cargar todos los artículos desde localStorage
+function cargarArticulos() {
+    const articulos = JSON.parse(localStorage.getItem('articulos')) || [];
+    const contenedorDeportes = document.getElementById('contenedorArticulosDeportes');
+    const contenedorNoticias = document.getElementById('contenedorArticulosNoticias');
+    const contenedorNegocios = document.getElementById('contenedorArticulosNegocios');
+
+    // Limpiar los contenedores antes de añadir nuevos artículos
+    contenedorDeportes.innerHTML = '';
+    contenedorNoticias.innerHTML = '';
+    contenedorNegocios.innerHTML = '';
+
+    articulos.forEach(articulo => agregarArticuloAlDOM(articulo));
+}
+
+
+
+//--------------------------------
 
 // Función para mostrar/ocultar el formulario flotante
 function toggleFormulario() {
@@ -254,6 +321,7 @@ window.onload = function () {
     cargarArticulosPaginaActual();
     contarArticulosPorCategoria();
     contarArticulosEnSeccion();
+
 };
 
 

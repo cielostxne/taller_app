@@ -84,7 +84,7 @@
 
   
 <section class="section">
-  <div class="container">
+  <div class="container container-registro">
     <h2 class="title">Registro</h2>
     <form action="/app/controllers/RegistroController.php" method="POST">
       <div class="field">
@@ -106,8 +106,8 @@
           <input class="input" type="password" name="password" required>
         </div>
       </div>
-      <div class="control">
-        <button class="button is-link">Enviar</button>
+      <div class="control mt-4 control-btn">
+        <button class="button is-link is-fullwidth">Enviar</button>
       </div>
     </form>
   </div>
