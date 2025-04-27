@@ -38,6 +38,24 @@
   --color-blue-zodiac-950: #19203e;
 
 }
+/*SCROLL THEME*/
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background-dark);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-bunker-900);
+  border-radius: 10px; 
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-bunker-700);
+}
+/*-----------------------------*/
 
 
 * {
@@ -53,9 +71,11 @@
   box-sizing: border-box;
 }
 
-html {
+html,body {
   scroll-behavior: smooth;
 }
+
+
 
 body {
   font-family: var(--fuente_principal) !important;
