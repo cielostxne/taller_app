@@ -1,0 +1,1078 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
+/* 1. APLICAR TIPOGRAFÍA NUEVA, EN ESTE CASO POPPINS
+   2. APLICAR FONDO GRIS (#f5f5f5) *Los artículos en blanco tienen su propia sección
+*/
+
+:root {
+  --fuente_principal: 'Poppins', sans-serif;
+  --background: #f5f5f5;
+  --background-dark: #18181b;
+  --color-texto-dark: #f4f4f5;
+  --color-texto: #333;
+
+
+  --color-bunker-50: #f7f7f8;
+  --color-bunker-100: #eeeef0;
+  --color-bunker-200: #d9d9de;
+  --color-bunker-300: #b8b9c1;
+  --color-bunker-400: #91939f;
+  --color-bunker-500: #737584;
+  --color-bunker-600: #5d5e6c;
+  --color-bunker-700: #4c4d58;
+  --color-bunker-800: #41414b;
+  --color-bunker-900: #393941;
+  --color-bunker-950: #18181b;
+
+  --color-blue-zodiac-50: #f1f6fd;
+  --color-blue-zodiac-100: #dfeafa;
+  --color-blue-zodiac-200: #c7daf6;
+  --color-blue-zodiac-300: #a0c3f0;
+  --color-blue-zodiac-400: #74a2e6;
+  --color-blue-zodiac-500: #5382de;
+  --color-blue-zodiac-600: #3e66d2;
+  --color-blue-zodiac-700: #3553c0;
+  --color-blue-zodiac-800: #30469d;
+  --color-blue-zodiac-900: #2c3e7c;
+  --color-blue-zodiac-950: #19203e;
+
+}
+/*SCROLL THEME*/
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background-dark);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-bunker-900);
+  border-radius: 10px; 
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-bunker-700);
+}
+/*-----------------------------*/
+
+
+* {
+  /* Fondo general */
+  --articulo-fondo: #ffffff;
+  /* Fondo de los artículos */
+  --color-texto: #333;
+
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+html,body {
+  scroll-behavior: smooth;
+}
+
+
+
+body {
+  font-family: var(--fuente_principal) !important;
+  background-color: var(--background-dark);
+  color: var(--color-texto);
+
+
+  display: grid;
+  min-height: 100dvh;
+  grid-template-rows: auto 1fr auto;
+}
+
+header {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  /* Ajustado para ocupar todo el alto de la pantalla */
+  background-image: url(../imagenes/faro2.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+  /* Flexbox para alinear contenido */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+/*
+FORMULARIO REGISTRO UIX
+*/
+.container-registro{
+  position: relative;
+  top: -190px;
+}
+
+.container-registro form {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.input {
+  max-width: 500px !important;
+  height: 50px !important;
+  padding: 15px !important;
+  box-sizing: border-box;
+
+}
+
+/*-----------------*/
+
+/*
+FORMULARIO CONTACTO UIX
+*/
+.container-contacto{
+  position: relative;
+  top: -150px;
+}
+.container-contacto form {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.textarea {
+  max-width: 500px !important;
+  min-width: 0 !important;
+  height: 150px !important;
+  padding: 15px !important;
+  box-sizing: border-box;
+}
+
+.control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.control-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-top: 1rem;
+}
+.control-btn button{
+  max-width: 200px;
+  padding: 1rem;
+}
+/*------------------------*/
+
+.img__fondo {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  animation: zoom-in-zoom-out 30s ease infinite;
+  object-fit: cover !important;
+  box-sizing: border-box;
+}
+
+.lamina {
+  position: absolute;
+  width: 100%;
+  height: 111vh;
+  top: 5rem;
+  left: 0;
+
+  /* From https://css.glass */
+  background: rgba(35, 31, 32, 0.72);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(12.6px);
+  -webkit-backdrop-filter: blur(12.6px);
+  border: 1px solid rgba(35, 31, 32, 0.3);
+
+  box-sizing: border-box;
+
+}
+
+
+
+/* 
+NAV VAR SECTION
+ */
+
+
+nav {
+  width: 100%;
+}
+
+.navbar {
+  padding: 1rem;
+}
+
+
+/* En pantallas grandes, el reloj está a la derecha */
+.reloj-mobile {
+  display: none !important;
+  /* Oculto en desktop */
+}
+
+
+
+
+.reloj-mobile {
+  display: none !important;
+}
+
+nav>ul>li>a {
+  color: var(--color-blue-zodiac-100)
+}
+
+
+
+
+.logo {
+  width: 100%;
+
+}
+
+.bar-btn {
+  font-size: 25px;
+  color: #fff;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+
+#check {
+  display: none;
+}
+
+
+
+
+
+.banner-text {
+  padding-top: 0px;
+  text-align: center;
+  z-index: 20;
+  margin-top: -15rem !important;
+}
+
+.banner-text h1 {
+  color: #fffbfb;
+  font-size: 40px;
+  text-transform: uppercase;
+
+}
+
+.banner-tex p {
+  color: #f0f0f0;
+  font-size: 18px;
+  padding: 30px;
+
+}
+
+/*--------------------------------------*/
+
+
+.breadcrumb {
+
+  z-index: 40 !important;
+  padding-top: 1rem;
+}
+
+/* Estilos para la sección de deportes */
+.hero-gradient {
+  background: linear-gradient(to right, var(--background-dark), var(--background-dark));
+  color: var(--color-blue-zodiac-950);
+}
+
+.card-shadow {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.seccion {
+
+  padding: 0rem;
+  text-align: center;
+  background-color: var(--background-dark);
+  /* border-radius: 10px; */
+  color: var(--color-texto);
+}
+
+
+h2,
+h3 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Estilos para la tabla */
+table {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+table,
+th,
+td {
+  border: 1px solid #ddd;
+}
+
+th,
+td {
+  padding: 15px;
+  text-align: left;
+}
+
+th {
+  background-color: #000000;
+  color: white;
+}
+
+/* Estilos para video y audio */
+video,
+audio {
+  display: block;
+  margin: 20px auto;
+  max-width: 100%;
+}
+
+/* Estilos para el botón */
+button {
+  display: block;
+  margin: 20px auto;
+  padding: 0;
+  font-size: 16px;
+  color: white;
+  background-color: #000000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #000000;
+}
+
+
+/* CONTENEDOR DE ARTÍCULOS 
+   2. ARTÍCULOS CON FONDO BLANCO
+   3. ARTÍCULOS COMO GRILLA (ya no tabla)
+*/
+.contenedor-articulos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+}
+
+.contenedor-articulos>#contenedorArticulosNegocios,
+#contenedorArticulosDeportes,
+#contenedorArticulosNoticias {
+  display: contents;
+  flex-direction: column;
+  gap: 16px;
+  border-radius: 8px;
+
+}
+
+
+
+
+/*
+---------- BULMA SECTION Card ------------
+*/
+.columns {
+  gap: 10px;
+  /* Espaciado entre columnas */
+  cursor: pointer;
+}
+
+.is-one-third {
+  background-color: #18181b !important;
+  color: var(--color-blue-zodiac-200) !important;
+  font-weight: 100;
+}
+
+.is-one-third>p {
+  text-align: left;
+}
+
+article>.title {
+  color: var(--color-blue-zodiac-50) !important;
+}
+
+.is-one-third:hover {
+  transform: scale(1.03);
+  cursor: pointer;
+}
+
+
+.button p:hover {
+  color: var(--articulo-fondo);
+}
+
+.button:hover span {
+  color: white;
+}
+
+
+.button {
+  margin-bottom: 1rem;
+}
+
+.box {
+  box-shadow: 0 0 0 1px var(--background-dark), 0 10px 15px -3px rgba(0, 0, 0, 0.744), 0 4px 6px -4px rgba(0, 0, 0, .05) !important;
+}
+
+
+/*
+--------------------------------------
+*/
+
+.media-container {
+  position: relative;
+  width: 80%;
+  /* Reduce el tamaño manteniendo proporciones */
+  max-width: 1200px;
+  /* Tamaño máximo */
+  margin: auto;
+  /* Centrar el contenedor */
+  padding-bottom: 56.25%;
+  /* Aspect ratio 16:9 */
+  height: 0;
+  overflow: hidden;
+}
+
+.media-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80%;
+}
+
+
+/* FOOTER
+   5. FOOTER CON COLOR DE FONDO Y TEXTO
+*/
+footer {
+  background-color: #c9d2d0;
+  color: #31231e;
+  text-align: center;
+  padding: 15px;
+  margin-top: 0px;
+}
+
+/* EFECTO NEGRITA EN VÍNCULOS
+     6. EN VÍNCULOS SIN TOCAR: SE VEN SUBRAYADOS
+        EN HOVER: QUITA SUBRAYADO + NEGRITA
+  */
+a {
+  text-decoration: none;
+  /* Subrayado por defecto */
+  font-weight: normal;
+  /* Texto normal */
+  color: black;
+  transition: all 0.3s ease-in-out;
+}
+
+a:hover {
+  text-decoration: none;
+  /* Quita el subrayado */
+  font-weight: bold;
+  /* Pone en negrita */
+}
+
+
+
+
+.formulario-flotante {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.formulario-flotante h3 {
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.formulario-flotante input,
+.formulario-flotante textarea,
+.formulario-flotante select {
+  width: 100%;
+  padding: 8px;
+  margin: 6px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+.formulario-flotante button {
+  width: 100%;
+  background-color: #000;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.formulario-flotante button:hover {
+  background-color: #222;
+}
+
+
+/* CONTACTO */
+
+.form-container {
+  margin: 1rem auto;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border: 1px solid var(--color-blue-zodiac-100);
+  border-radius: 8px;
+  background-color: var(--background-dark);
+  color: var(--color-blue-zodiac-100);
+  width: 45%;
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--color-blue-zodiac-100);
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  text-align: start;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: transparent;
+  color: var(--color-blue-zodiac-100);
+}
+
+input[type="text"] {
+  border: none;
+  /* Elimina bordes predeterminados */
+  border-bottom: 2px solid black;
+  /* Agrega línea inferior */
+  outline: none;
+  /* Elimina el contorno al seleccionar */
+  padding: 5px;
+  /* Opcional: Agrega espacio interno */
+  font-size: 16px;
+  /* Opcional: Ajusta el tamaño del texto */
+}
+
+
+.btn-enviar {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-enviar:hover {
+  background-color: #0056b3;
+}
+
+.form-container body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f26b;
+
+}
+
+
+.contador {
+  width: 100%;
+  text-align: end;
+  justify-items: end;
+  border-radius: 10rem;
+}
+
+.contador>.button {
+  margin-right: 1rem;
+  margin-top: 1rem;
+}
+
+
+input[type="text"] {
+  border: none;
+  /* Elimina bordes predeterminados */
+  border-bottom: 2px solid black;
+  /* Agrega línea inferior */
+  outline: none;
+  /* Elimina el contorno al seleccionar */
+  padding: 5px;
+  /* Opcional: Agrega espacio interno */
+  font-size: 16px;
+}
+
+textarea {
+  width: 100%;
+  max-width: 100%;
+  min-width: 50%;
+  height: auto;
+  max-height: 150px;
+  resize: none;
+  overflow: auto;
+}
+
+
+/* 
+PANTALLA PARA MÓVIL
+ */
+
+@media (max-width: 894px) {
+  body {
+    background-color: #222;
+    color: white;
+  }
+
+
+
+  h1,
+  h2 {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 18px;
+    text-align: center;
+    padding: 0 15px;
+  }
+
+  table {
+    width: 100%;
+    max-width: 600px;
+    margin: 10px auto;
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid rgb(0, 0, 0);
+    color: #000000;
+  }
+
+  .articulo p {
+    color: #000000;
+  }
+
+  .contenedor-articulos {
+    grid-template-columns: 1fr;
+  }
+
+
+
+  .formulario-flotante h3 {
+    font-size: 1rem;
+  }
+
+  .contenedor-articulos {
+    padding: 10px;
+  }
+
+  .articulo {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .reloj-desktop {
+    display: none !important;
+  }
+
+  .reloj-mobile {
+    display: flex !important;
+    justify-content: center;
+    top: 0;
+  }
+
+  .reloj-mobile>.reloj-cabecera {
+    font-size: 0.7rem;
+  }
+
+  .btn-flotante {
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    bottom: 20px;
+    right: 20px;
+    width: 3rem;
+    height: 3rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn-flotante__icon {
+    display: inline-block;
+    /* Asegura que el icono mantenga su posición */
+    text-align: center;
+    /* Centra el texto en el interior del ícono */
+  }
+
+
+  /* Formulario flotante */
+  .formulario-flotante {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: none;
+    /* Oculto por defecto */
+  }
+
+
+  button.btn-cerrar {
+    top: 0.1rem;
+    right: 1rem;
+    position: absolute;
+    background-color: transparent;
+    color: black;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  button.btn-cerrar:hover {
+    background-color: #31231e;
+    color: wheat;
+  }
+
+  #contenedorArticulosNegocios {
+    display: contents;
+    gap: 10px;
+  }
+
+  .contador {
+    margin-bottom: 1rem;
+  }
+
+  .contador>p {
+    font-size: 0.7rem;
+    width: 10rem;
+
+  }
+
+  .contador>.button {
+    font-size: 0.001rem;
+    font-weight: 200;
+    padding: 0.5rem 0.6rem;
+    margin-top: 0.3rem;
+  }
+
+  .button>p {
+    font-size: 1rem !important;
+  }
+
+  .form-container {
+    width: 90%;
+    margin-top: 1rem;
+  }
+
+  .seccion-con-fondo {
+    margin-top: 0rem;
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+  }
+
+  .banner-text {
+    padding-top: 13rem;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .container-registro {
+    top: -90px;
+  }
+  .container-contacto{
+    top: -78px;
+  }
+  .container-contacto h2{
+    font-size: 1.5rem;
+  }
+  .control-btn button{
+    max-width: 200px;
+    padding: 0.5rem 1rem;
+  }
+
+}
+
+
+
+/* 
+  PANTALLA PARA PC
+*/
+
+@media (width > 894px) {
+
+
+  .logo {
+    margin-left: 0;
+  }
+
+
+  nav {
+    height: 80px;
+    margin: 0 auto;
+    list-style: none;
+  }
+
+  .nav__imagen {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+
+  }
+
+  .reloj-desktop {
+    display: flex !important;
+  }
+
+  .reloj-mobile {
+    display: none !important;
+  }
+
+
+  .bar-btn {
+    display: none;
+  }
+
+
+
+
+
+
+  /* ---------------------------- */
+
+
+
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+  }
+
+
+  .banner-text {
+    padding: 0px;
+  }
+
+
+  .banner-text h1 {
+    font-size: 50px;
+    color: #fff;
+  }
+
+  .banner-text p {
+    padding: 30px 200px;
+    color: #f0f0f0;
+  }
+
+
+
+  .btn-flotante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  }
+
+
+  /* Formulario flotante */
+  .formulario-flotante {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: none;
+    /* Oculto por defecto */
+  }
+
+  button.btn-cerrar {
+    top: 0.1rem;
+    right: 1rem;
+    position: absolute;
+    background-color: transparent;
+    color: black;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  button.btn-cerrar:hover {
+    background-color: #31231e;
+    color: wheat;
+  }
+
+
+}
+
+@media (min-width: 894px) and (max-width: 1023px) {
+  .reloj-desktop {
+    display: none !important;
+  }
+
+  .reloj-mobile {
+    display: flex !important;
+    justify-content: center;
+    top: 0;
+
+  }
+
+
+}
+
+
+.seccion-con-fondo {
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  background-image: url('../imagenes/faro2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+
+}
+
+.section.seccion-con-fondo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  /* capa oscura encima */
+  z-index: 0;
+
+}
+
+.section.seccion-con-fondo .container {
+  position: relative;
+  z-index: 1;
+  color: white;
+  /* si lo necesitas para que el texto sea legible */
+}
+
+footer.footer {
+  padding: 2rem 1rem 1.5rem;
+}
+
+footer.footer .columns {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+footer.footer .column {
+  margin-bottom: 0.75rem;
+}
+
+footer.footer ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+footer.footer ul li {
+  margin-bottom: 0.25rem;
+}

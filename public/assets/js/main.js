@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
     const burger = document.querySelector('.navbar-burger');
     const menu = document.querySelector('#navbarMenu');
@@ -231,13 +232,17 @@ function agregarArticuloAlDOM(articulo) {
 
 // Evento para manejar el formulario flotante y agregar artículos dinámicamente
 document.getElementById('formArticulo').addEventListener('submit', function (e) {
+    console.log("Evento submit detectado.");
+
+    
     e.preventDefault(); // Evitar el recargo de la página
 
     const titulo = document.getElementById('tituloArticulo').value.trim();
     const contenido = document.getElementById('contenidoArticulo').value.trim();
     const categoria = document.getElementById('categoriaArticulo').value;
 
-
+    
+    
 
     if (titulo && contenido && categoria) {
 
@@ -271,6 +276,7 @@ document.addEventListener('DOMContentLoaded', cargarArticulos);
 
 // Función para cargar todos los artículos desde localStorage
 function cargarArticulos() {
+
     const articulos = JSON.parse(localStorage.getItem('articulos')) || [];
     const contenedorDeportes = document.getElementById('contenedorArticulosDeportes');
     const contenedorNoticias = document.getElementById('contenedorArticulosNoticias');

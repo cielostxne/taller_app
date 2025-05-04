@@ -47,7 +47,7 @@
 
   </nav>
 
-
+  
   <nav class="breadcrumb is-right has-bullet-separator" aria-label="breadcrumbs">
     <ul>
       <li><a href="#articulos-destacados">Artículos Destacados</a></li>
@@ -138,7 +138,8 @@
       </div>
     </div>
   </section>
-  <script src="main.js"></script>
+  
+  <script src="./main.js"></script>
   </body>
 </html>
 
