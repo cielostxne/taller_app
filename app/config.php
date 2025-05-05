@@ -1,16 +1,10 @@
 <?php
-//echo '<pre>';
-//var_dump($_SERVER['SCRIPT_NAME']);
-//var_dump($_SERVER['REQUEST_URI']);
-//echo '<pre>';
-
-
-
-$folderPath = dirname($_SERVER['SCRIPT_NAME']); // '/taller_app'
+$folderPath = dirname($_SERVER['SCRIPT_NAME']); // por ejemplo: /public
 $urlPath = $_SERVER['REQUEST_URI'];
 $url = substr($urlPath, strlen($folderPath));
 
-define('URL', $url);  // '/taller_app/public'
+// Asegúrate que URL empieza con "/"
+$url = '/' . ltrim($url, '/');
 
-define('URL_PATH',$folderPath);
-//echo $folderPath;
+define('URL', $url);  // '/Registro/index' o lo que sea
+define('URL_PATH', $folderPath);
