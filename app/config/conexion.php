@@ -1,5 +1,5 @@
 <?php
-$host = "sql301.epizy.com";
+$host = "sql301.infinityfree.com";
 $db = "if0_38896219_elfaro_db";
 $user = "if0_38896219";
 $pass = "030525faro";
