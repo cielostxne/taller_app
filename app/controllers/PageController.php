@@ -40,5 +40,9 @@ class PageController extends Controller
     {
         $this->render('registroExitoso', [], 'site');
     }
-
+    public function listaUsuarios()
+    {
+        $this->render('listaUsuarios', [], 'site');
+    }
 }
+

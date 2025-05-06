@@ -31,6 +31,7 @@
             <a class="navbar-item" href="<?= URL_PATH ?>/page/contacto">Contacto</a>
             <a class="navbar-item" href="<?= URL_PATH ?>/page/avisos">Avisos</a>
             <a class="navbar-item" href="<?= URL_PATH ?>/page/registro">Registro</a>
+            <a class="navbar-item" href="<?= URL_PATH ?>/page/listaUsuarios">Usuarios</a>
         </div>
 
     </div>

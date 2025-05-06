@@ -43,6 +43,17 @@ class RegistroController extends Controller
             }
         }
     }
+
+    public function listar()
+{
+    global $conn;
+
+    $stmt = $conn->query("SELECT nombre, correo FROM usuarios");
+    $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    $this->render('listaUsuarios', ['usuarios' => $usuarios], 'main');
+}
+
 }
 
 // **Ejecutar el método automáticamente**
