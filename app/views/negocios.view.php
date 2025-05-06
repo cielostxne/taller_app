@@ -1,3 +1,22 @@
+<?php
+// Conexión directa a la base de datos
+try {
+    $conn = new PDO("mysql:host=sql301.infinityfree.com;dbname=if0_38896219_elfaro_db", "if0_38896219", "030525faro");
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $conn->exec("SET NAMES utf8mb4");
+
+
+    // Consulta para artículos de la categoría Deportes (id_categoria = 1)
+    $stmt = $conn->prepare("SELECT titulo, contenido FROM articulos WHERE id_categoria = 3 ORDER BY id_articulos DESC");
+    $stmt->execute();
+    $articulosDeportes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+} catch (PDOException $e) {
+    die("Error de conexión o consulta: " . $e->getMessage());
+}
+?>
+
+
 <section class="seccion">
     <div class="contador">
         <div class="button">
@@ -8,47 +27,16 @@
     <h2 class="title">Negocios</h2>
 
     <div class="contenedor-articulos">
-        <!-- Artículos estáticos originales -->
-        <article class="is-one-third box">
-            <h3 class="title is-4">Las PYMES pueden aprovechar oportunidades en Mercado Público con estos pasos</h3>
-            <button class="button">
-                <p><span class="subtitle">Categoría:</span> Negocios</p>
-            </button>
+                    <?php foreach ($articulosDeportes as $articulo): ?>
+                        <article class="is-one-third box">
+                            <h3 class="title is-4"><?= htmlspecialchars($articulo['titulo']) ?></h3>
+                            <button class="button">
+                                <p><span class="subtitle">Categoría:</span> Negocios</p>
+                            </button>
+                            <p><?= nl2br(htmlspecialchars($articulo['contenido'])) ?></p>
+                        </article>
+                    <?php endforeach; ?>
 
-            <p>El portal Innova ofrece una guía para que las pequeñas y medianas empresas (PYMES) encuentren oportunidades
-                de negocio en el Mercado Público. Este espacio es clave para acceder a licitaciones y contratos con el Estado.
-                El proceso comienza con la inscripción en el sistema, la búsqueda de licitaciones relacionadas con el giro de
-                la empresa y la preparación de las propuestas. Además, se destacan estrategias para aumentar las posibilidades
-                de éxito, como el cumplimiento de los requisitos técnicos y administrativos y el fortalecimiento de la
-                competitividad.</p>
-        </article>
-
-        <article class="is-one-third box">
-            <h3 class="title is-4">Confianza de los consumidores chilenos cae debido a apagón, guerra comercial y mayores
-                gastos</h3>
-            <button class="button">
-                <p><span class="subtitle">Categoría:</span> Negocios</p>
-            </button>
-            <p>En marzo de 2025, la confianza de los consumidores en Chile sufrió una caída significativa, afectada por
-                varios factores, como el reciente apagón que afectó al país, la creciente guerra comercial y el aumento de los
-                gastos familiares. Estos elementos han generado incertidumbre económica y disminuido la percepción de los
-                chilenos sobre la estabilidad del mercado. Las proyecciones indican que estos factores seguirán impactando
-                negativamente la confianza de los consumidores en el corto plazo.</p>
-        </article>
-
-        <article class="is-one-third box">
-            <h3 class="title is-4">Acciones de Nvidia y Tesla caen un 6% y pierden 250,000 millones de dólares</h3>
-            <button class="button">
-                <p><span class="subtitle">Categoría:</span> Negocios</p>
-            </button>
-            <p>Las acciones de Nvidia y Tesla experimentaron una caída significativa del 6% en marzo de 2025, lo que resultó
-                en una pérdida combinada de 250,000 millones de dólares en su capitalización de mercado. Esta caída se produjo
-                en medio de un clima de incertidumbre económica global, impulsada por las políticas comerciales del presidente
-                Trump, que incluyeron nuevos aranceles a las importaciones y restricciones a empresas tecnológicas chinas. Los
-                inversores temen que las tensiones comerciales afecten a la demanda de productos clave, como los chips de
-                inteligencia artificial de Nvidia y los vehículos eléctricos de Tesla.</p>
-        </article>
-        <!-- Artículos dinámicos desde localStorage -->
         <div id="contenedorArticulosNegocios"></div>
     </div>
 

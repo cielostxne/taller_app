@@ -3,6 +3,8 @@
 try {
     $conn = new PDO("mysql:host=sql301.infinityfree.com;dbname=if0_38896219_elfaro_db", "if0_38896219", "030525faro");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $conn->exec("SET NAMES utf8mb4");
+
 
     // Consulta a la base de datos
     $stmt = $conn->query("SELECT nombre, correo FROM usuarios");
