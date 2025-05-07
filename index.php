@@ -1,3 +1,4 @@
 <?php
-header("Location: /public/page/");
+header("Location: /public/");
 exit();
+

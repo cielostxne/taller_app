@@ -231,8 +231,9 @@ function agregarArticuloAlDOM(articulo) {
 
 
 // Evento para manejar el formulario flotante y agregar artículos dinámicamente
+/*
 document.getElementById('formArticulo').addEventListener('submit', function (e) {
-    console.log("Evento submit detectado.");
+    //console.log("Evento submit detectado.");
 
     
     e.preventDefault(); // Evitar el recargo de la página
@@ -270,6 +271,51 @@ document.getElementById('formArticulo').addEventListener('submit', function (e) 
 
     }
 });
+*/
+
+
+document.getElementById('formArticulo').addEventListener('submit', async function (e) {
+    e.preventDefault(); // Evita recargar la página
+
+    const titulo = document.getElementById('tituloArticulo').value.trim();
+    const contenido = document.getElementById('contenidoArticulo').value.trim();
+    const categoria = document.getElementById('categoriaArticulo').value;
+    //console.log(categoria)
+    const id_usuario = 1; // Suponiendo que el usuario tiene ID 1 (deberías obtenerlo dinámicamente)
+
+    if (titulo && contenido && categoria) {
+        const formData = new FormData();
+        formData.append("titulo", titulo);
+        formData.append("contenido", contenido);
+        formData.append("categoria", categoria);
+        formData.append("id_usuario", id_usuario);
+
+        try {
+            const response = await fetch('/app/controllers/ArticuloController.php', {
+                method: 'POST',
+                body: formData
+            });
+
+            const textResponse = await response.text(); // Captura la respuesta como texto
+            console.log("Respuesta del servidor:", textResponse); // Mostrar en consola
+
+            const data = JSON.parse(textResponse); // Convertirlo a JSON
+
+            if (data.status === "success") {
+                mostrarNotificacion("✅ ¡Artículo agregado correctamente!");
+                cerrarFormulario();
+            } else {
+                mostrarNotificacion("❌ Error al guardar el artículo.");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            mostrarNotificacion("❌ Error de conexión con el servidor.");
+        }
+
+    }
+});
+
+
 
 // Cargar todos los artículos al iniciar la página
 document.addEventListener('DOMContentLoaded', cargarArticulos);

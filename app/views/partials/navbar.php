@@ -30,7 +30,9 @@
             <a class="navbar-item " href="<?= URL_PATH ?>/page/noticias">Noticias</a>
             <a class="navbar-item" href="<?= URL_PATH ?>/page/contacto">Contacto</a>
             <a class="navbar-item" href="<?= URL_PATH ?>/page/avisos">Avisos</a>
+            <a class="navbar-item" href="<?= URL_PATH ?>/page/listaUsuarios">Usuarios</a>
             <a class="navbar-item" href="<?= URL_PATH ?>/page/registro">Registro</a>
+            
         </div>
 
     </div>

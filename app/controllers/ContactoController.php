@@ -1,21 +1,35 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $nombre = htmlspecialchars($_POST['nombre']);
-  $email = htmlspecialchars($_POST['email']);
-  $mensaje = htmlspecialchars($_POST['mensaje']);
-  
-  // Por ahora, solo mostramos los datos
-  echo "<!DOCTYPE html><html lang='es'><head><meta charset='UTF-8'><title>Registro</title>
-  <link rel='stylesheet' href='../../css/bulma.min.css'>
-  <link rel='stylesheet' href='../../css/styles.css'>
-  </head><body>
-  <section class='section'>
-  <div class='container'>
-  <h2 class='title'>Registro Exitoso</h2>
-  <p class='subtitle'>Gracias tu mensaje, <strong>$nombre</strong>. Te responderemos pronto a <strong>$email</strong></p>
-  <a href='../../index.php' class='button is-link mt-4'>Volver al inicio</a>
-  </div>
-  </section>
-  </body></html>";
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+require_once __DIR__ . '/../autoload.php';
+require_once __DIR__ . '/../core/controller.php';
+require_once __DIR__ . '/../models/Contacto.php';
+require_once __DIR__ . '/../config/conexion.php';
+
+class ContactoController extends Controller
+{
+    public function enviar()
+    {
+        global $conn;
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $nombre = htmlspecialchars($_POST['nombre']);
+            $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+            $mensaje = htmlspecialchars($_POST['mensaje']);
+
+            // Guardar en la base de datos usando el modelo Contacto
+            if (Contacto::guardar($conn, $nombre, $email, $mensaje)) {
+                header("Location: http://elfaroinfinityfreeapp.free.nf/public/page/contactoExitoso");
+                exit;
+            } else {
+                echo "Error al enviar el mensaje.";
+                exit;
+            }
+        }
+    }
 }
-?>
+
+// **Ejecutar el método automáticamente**
+$contactoController = new ContactoController();
+$contactoController->enviar();

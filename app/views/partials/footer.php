@@ -19,6 +19,7 @@
         <li><a href="<?= URL_PATH ?>/page/contacto" class="has-text-light">Contacto</a></li>
         <li><a href="<?= URL_PATH ?>/page/avisos" class="has-text-light">Avisos</a></li>
         <li><a href="<?= URL_PATH ?>/page/registro" class="has-text-light">Registro</a></li>
+        <li><a href="<?= URL_PATH ?>/page/listaUsuarios" class="has-text-light">Usuarios</a></li>
       </ul>
     </div>
 

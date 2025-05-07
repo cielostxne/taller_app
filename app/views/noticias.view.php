@@ -1,3 +1,21 @@
+<?php
+// Conexión directa a la base de datos
+try {
+    $conn = new PDO("mysql:host=sql301.infinityfree.com;dbname=if0_38896219_elfaro_db", "if0_38896219", "030525faro");
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $conn->exec("SET NAMES utf8mb4");
+
+
+    // Consulta para artículos de la categoría Deportes (id_categoria = 1)
+    $stmt = $conn->prepare("SELECT titulo, contenido FROM articulos WHERE id_categoria = 4 ORDER BY id_articulos DESC");
+    $stmt->execute();
+    $articulosDeportes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+} catch (PDOException $e) {
+    die("Error de conexión o consulta: " . $e->getMessage());
+}
+?>
+
 <section class="seccion">
     <div class="contador">
         <div class="button">
@@ -7,45 +25,17 @@
     <h2 class="title">Noticias</h2>
     <div class="contenedor-articulos">
 
+                    <?php foreach ($articulosDeportes as $articulo): ?>
+                        <article class="is-one-third box">
+                            <h3 class="title is-4"><?= htmlspecialchars($articulo['titulo']) ?></h3>
+                            <button class="button">
+                                <p><span class="subtitle">Categoría:</span> Negocios</p>
+                            </button>
+                            <p><?= nl2br(htmlspecialchars($articulo['contenido'])) ?></p>
+                        </article>
+                    <?php endforeach; ?>
 
 
-        <!-- Artículos estáticos originales -->
-        <article class="is-one-third box">
-            <h3 class="title is-4">Elon Musk proyecta un futuro dominado por robots.</h3>
-            <button class="button">
-                <p><span class="subtitle">Categoría:</span> Noticias</p>
-            </button>
-            <p>Elon Musk asegura que los robots humanoides podrían revolucionar la economía, convirtiéndose en un mercado
-                valuado en 10 billones de dólares. Las empresas tecnológicas ya están apostando fuerte por esta tendencia.</p>
-        </article>
-
-        <article class="is-one-third box">
-            <h3 class="title is-4">Discos duros NVMe mecánicos por Seagate.</h3>
-            <button class="button">
-                <p><span class="subtitle">Categoría:</span> Noticias</p>
-            </button>
-            <p>Seagate sorprende al mundo con discos duros que combinan almacenamiento mecánico y la velocidad de NVMe,
-                marcando un nuevo hito en el desarrollo de hardware.</p>
-        </article>
-
-        <article class="is-one-third box">
-            <h3 class="title is-4">Google lanza su chip cuántico Willow.</h3>
-            <button class="button">
-                <p><span class="subtitle">Categoría:</span> Noticias</p>
-            </button>
-            <p>El nuevo chip cuántico de Google promete resolver problemas complejos en minutos, revolucionando la
-                computación avanzada y dejando atrás las capacidades de los superordenadores actuales.</p>
-        </article>
-
-        <article class="is-one-third box">
-            <h3 class="title is-4">Robots humanoides comienzan a llegar a los hogares.</h3>
-            <button class="button">
-                <p><span class="subtitle">Categoría:</span> Noticias</p>
-            </button>
-            <p>La robótica doméstica da un salto con la llegada de robots humanoides accesibles al público, facilitando
-                tareas del hogar y ofreciendo soluciones inteligentes.</p>
-        </article>
-        <!-- Artículos dinámicos desde localStorage -->
         <div id="contenedorArticulosNoticias"></div>
     </div>
 

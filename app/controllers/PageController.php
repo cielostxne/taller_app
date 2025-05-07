@@ -26,6 +26,11 @@ class PageController extends Controller
 
         $this->render('contacto', [], 'site');
     }
+    public function contactoExitoso()
+    {
+
+        $this->render('contactoExitoso', [], 'site');
+    }
     public function avisos()
     {
 
@@ -36,9 +41,17 @@ class PageController extends Controller
 
         $this->render('registro', [], 'site');
     }
+    public function login()
+    {
+        $this->render('login', [], 'site');
+    }
     public function registroExitoso()
     {
         $this->render('registroExitoso', [], 'site');
     }
-
+    public function listaUsuarios()
+    {
+        $this->render('listaUsuarios', [], 'site');
+    }
 }
+
