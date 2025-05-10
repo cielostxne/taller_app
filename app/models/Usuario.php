@@ -1,29 +1,34 @@
 <?php
-// para futuras mejorar cambiar de public a private estos atributos.
+require_once __DIR__ . '/../config/Database.php'; // Aseguramos la conexión
+
 class Usuario {
-  public $nombre;
-  public $email;
-  public $password;
+    private $db;
+    public $nombre;
+    public $email;
+    public $password;
 
-  public function __construct($nombre, $email, $password) {
-    $this->nombre = $nombre;
-    $this->email = $email;
-    $this->password = $password;
-  }
+    public function __construct($nombre = null, $email = null, $password = null) {
+    $this->db = Database::getInstance()->getConnection();
+    if ($nombre && $email && $password) {
+        $this->nombre = $nombre;
+        $this->email = $email;
+        $this->password = password_hash($password, PASSWORD_DEFAULT);
+    }
+}
 
-  public static function obtenerPorCorreo($conn, $email) {
-      $stmt = $conn->prepare("SELECT id_usuario, nombre, correo, password FROM usuarios WHERE correo = :correo");
-      $stmt->bindParam(':correo', $email);
-      $stmt->execute();
-      $datosUsuario = $stmt->fetch(PDO::FETCH_ASSOC);
+    public function guardar() {
+        $sql = "INSERT INTO usuarios (nombre, correo, password) VALUES (:nombre, :correo, :password)";
+        $stmt = $this->db->prepare($sql);
+        return $stmt->execute([
+            ':nombre' => $this->nombre,
+            ':correo' => $this->email,
+            ':password' => $this->password
+        ]);
+    }
 
-      if ($datosUsuario) {
-          return new Usuario($datosUsuario['nombre'], $datosUsuario['correo'], $datosUsuario['password']);
-      } else {
-          return null;
-      }
-  }
-
-
+    public function obtenerUsuarios() {
+        $stmt = $this->db->query("SELECT nombre, correo FROM usuarios");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
 

@@ -6,51 +6,34 @@ require_once __DIR__ . '/../autoload.php';
 require_once __DIR__ . '/../core/controller.php';
 require_once __DIR__ . '/../models/Articulo.php';
 require_once __DIR__ . '/../models/Categoria.php';
-require_once __DIR__ . '/../config/conexion.php';
 
 header('Content-Type: application/json'); // Define que la respuesta es JSON
 
-class ArticuloController extends Controller
-{
-    public function guardar()
-    {
-        global $conn;
+class ArticuloController extends Controller {
+    private $articulo;
 
+    public function __construct() {
+        $this->articulo = new Articulo(); // Instancia
+    }
+
+    public function guardar() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $titulo = htmlspecialchars($_POST['titulo']);
-            $nombre_categoria = $_POST['categoria'];
+            $id_categoria = $_POST['id_categoria'];
             $contenido = htmlspecialchars($_POST['contenido']);
             $id_usuario = $_POST['id_usuario'];
 
-            $categoria = Categoria::obtenerPorNombre($conn, $nombre_categoria);
-
-            if (!$categoria) {
-                echo json_encode(["status" => "error", "message" => "Categoría inválida"]);
-                exit;
-            }
-            $id_categoria = $categoria->id;
-
-            $articulo = new Articulo($titulo, $id_categoria, $contenido, $id_usuario);
-            // Guardar el artículo usando el método del modelo
-            if (Articulo::guardar($conn, $articulo->titulo, $articulo->categoria, $articulo->contenido, $articulo->id_usuario)) {
+            if ($this->articulo->guardar($titulo, $id_categoria, $contenido, $id_usuario)) {
                 echo json_encode(["status" => "success", "message" => "Artículo guardado correctamente"]);
             } else {
                 echo json_encode(["status" => "error", "message" => "Error al guardar el artículo"]);
             }
-
-
-            exit;
-        } else {
-            echo json_encode(["status" => "error", "message" => "Método inválido"]);
             exit;
         }
     }
 
-    public function obtenerArticulosPorCategoria($id_categoria)
-    {
-        global $conn;
-
-        $articulos = Articulo::obtenerPorCategoria($conn, $id_categoria);
+    public function obtenerArticulosPorCategoria($id_categoria) {
+        $articulos = $this->articulo->obtenerPorCategoria($id_categoria);
 
         if ($articulos) {
             echo json_encode(["status" => "success", "data" => $articulos]);
@@ -60,8 +43,34 @@ class ArticuloController extends Controller
         exit;
     }
 
+    // Método para cargar noticias en la vista
+    public function noticias() {
+        $id_categoria = 4;
+        $articulos = $this->articulo->obtenerPorCategoria($id_categoria);
+        $this->cargarVista('noticias.view.php', ['articulos' => $articulos]);
+    }
+
+    public function deportes() {
+        $id_categoria = 1;
+        $articulos = $this->articulo->obtenerPorCategoria($id_categoria);
+        $this->cargarVista('deportes.view.php', ['articulos' => $articulos]);
+    }
+
+    public function negocios() {
+        $id_categoria = 3;
+        $articulos = $this->articulo->obtenerPorCategoria($id_categoria);
+        $this->cargarVista('negocios.view.php', ['articulos' => $articulos]);
+    }
+
+    private function cargarVista($vista, $datos) {
+        extract($datos); // Extrae los datos para que estén disponibles en la vista
+        require __DIR__ . "/../views/$vista";
+    }
 
 }
 
 $articuloController = new ArticuloController();
-$articuloController->guardar();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $articuloController->guardar();
+}
