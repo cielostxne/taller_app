@@ -1,23 +1,4 @@
-<?php
-// Conexión directa a la base de datos
-try {
-    $conn = new PDO("mysql:host=sql301.infinityfree.com;dbname=if0_38896219_elfaro_db", "if0_38896219", "030525faro");
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $conn->exec("SET NAMES utf8mb4");
-
-
-    // Consulta a la base de datos
-    $stmt = $conn->query("SELECT nombre, correo FROM usuarios");
-    $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-} catch (PDOException $e) {
-    die("Error al conectar o consultar: " . $e->getMessage());
-}
-?>
-
-
-
-
+<?php if (!empty($usuarios)): ?>
 <section class="section">
     <div class="container">
         <h1 class="title">Usuarios Registrados</h1>
@@ -40,3 +21,6 @@ try {
         </table>
     </div>
 </section>
+<?php else: ?>
+    <p>No hay usuarios registrados.</p>
+<?php endif; ?>
