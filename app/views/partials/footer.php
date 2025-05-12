@@ -13,9 +13,9 @@
       <h3 class="title is-6 has-text-white">Navegación</h3>
       <ul>
         <li><a href="<?= URL_PATH ?>" class="has-text-light">Inicio</a></li>
-        <li><a href="<?= URL_PATH ?>/page/deportes" class="has-text-light">Deportes</a></li>
-        <li><a href="<?= URL_PATH ?>/page/negocios" class="has-text-light">Negocios</a></li>
-        <li><a href="<?= URL_PATH ?>/page/noticias" class="has-text-light">Noticias</a></li>
+        <li><a href="<?= URL_PATH ?>/articulo/deportes" class="has-text-light">Deportes</a></li>
+        <li><a href="<?= URL_PATH ?>/articulo/negocios" class="has-text-light">Negocios</a></li>
+        <li><a href="<?= URL_PATH ?>/articulo/noticias" class="has-text-light">Noticias</a></li>
         <li><a href="<?= URL_PATH ?>/page/contacto" class="has-text-light">Contacto</a></li>
         <li><a href="<?= URL_PATH ?>/page/avisos" class="has-text-light">Avisos</a></li>
         <li><a href="<?= URL_PATH ?>/page/registro" class="has-text-light">Registro</a></li>
