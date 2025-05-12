@@ -7,8 +7,6 @@ require_once __DIR__ . '/../core/controller.php';
 require_once __DIR__ . '/../models/Articulo.php';
 require_once __DIR__ . '/../models/Categoria.php';
 
-header('Content-Type: application/json'); // Define que la respuesta es JSON
-
 class ArticuloController extends Controller {
     private $articulo;
 
@@ -17,6 +15,8 @@ class ArticuloController extends Controller {
     }
 
     public function guardar() {
+        header('Content-Type: application/json');
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $titulo = htmlspecialchars($_POST['titulo']);
             $id_categoria = $_POST['id_categoria'];
@@ -33,6 +33,8 @@ class ArticuloController extends Controller {
     }
 
     public function obtenerArticulosPorCategoria($id_categoria) {
+        header('Content-Type: application/json');
+
         $articulos = $this->articulo->obtenerPorCategoria($id_categoria);
 
         if ($articulos) {
@@ -43,34 +45,28 @@ class ArticuloController extends Controller {
         exit;
     }
 
-    // Método para cargar noticias en la vista
     public function noticias() {
         $id_categoria = 4;
         $articulos = $this->articulo->obtenerPorCategoria($id_categoria);
-        $this->cargarVista('noticias.view.php', ['articulos' => $articulos]);
+        $this->render('noticias', ['articulos' => $articulos], 'site');
     }
 
     public function deportes() {
         $id_categoria = 1;
         $articulos = $this->articulo->obtenerPorCategoria($id_categoria);
-        $this->cargarVista('deportes.view.php', ['articulos' => $articulos]);
+        $this->render('deportes', ['articulos' => $articulos], 'site');
+
     }
 
     public function negocios() {
         $id_categoria = 3;
         $articulos = $this->articulo->obtenerPorCategoria($id_categoria);
-        $this->cargarVista('negocios.view.php', ['articulos' => $articulos]);
+        $this->render('negocios', ['articulos' => $articulos], 'site');
+
     }
 
     private function cargarVista($vista, $datos) {
-        extract($datos); // Extrae los datos para que estén disponibles en la vista
+        extract($datos);
         require __DIR__ . "/../views/$vista";
     }
-
-}
-
-$articuloController = new ArticuloController();
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $articuloController->guardar();
 }

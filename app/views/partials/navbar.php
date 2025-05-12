@@ -25,9 +25,9 @@
     <div id="navbarMenu" class="navbar-menu">
 
         <div class="navbar-start">
-            <a class="navbar-item" href="<?= URL_PATH ?>/page/deportes">Deportes</a>
-            <a class="navbar-item " href="<?= URL_PATH ?>/page/negocios">Negocios</a>
-            <a class="navbar-item " href="<?= URL_PATH ?>/page/noticias">Noticias</a>
+            <a class="navbar-item" href="<?= URL_PATH ?>/articulo/deportes">Deportes</a>
+            <a class="navbar-item" href="<?= URL_PATH ?>/articulo/negocios">Negocios</a>
+            <a class="navbar-item" href="<?= URL_PATH ?>/articulo/noticias">Noticias</a>
             <a class="navbar-item" href="<?= URL_PATH ?>/page/contacto">Contacto</a>
             <a class="navbar-item" href="<?= URL_PATH ?>/page/avisos">Avisos</a>
             <a class="navbar-item" href="<?= URL_PATH ?>/page/listaUsuarios">Usuarios</a>
