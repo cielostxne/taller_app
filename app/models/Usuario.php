@@ -27,8 +27,11 @@ class Usuario {
     }
 
     public function obtenerUsuarios() {
-        $stmt = $this->db->query("SELECT nombre, correo FROM usuarios");
+        $stmt = $this->db->prepare("SELECT nombre, correo FROM usuarios");
+        $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
     }
 }
+
 

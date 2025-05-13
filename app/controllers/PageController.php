@@ -49,9 +49,14 @@ class PageController extends Controller
     {
         $this->render('registroExitoso', [], 'site');
     }
-    public function listaUsuarios()
+public function listaUsuarios()
     {
-        $this->render('listaUsuarios', [], 'site');
+        require_once __DIR__ . '/../models/Usuario.php';
+        $usuarioModel = new Usuario();
+        $usuarios = $usuarioModel->obtenerUsuarios();
+
+        $this->render('listaUsuarios', ['usuarios' => $usuarios], 'site');
     }
+
 }
 

@@ -5,6 +5,7 @@ ini_set('log_errors', 1);
 ini_set('error_log', __DIR__ . '/../logs/php_errors.log');
 
 require_once __DIR__ . '/../models/Usuario.php';
+require_once __DIR__ . '/../core/controller.php';
 
 class RegistroController extends Controller {
     private $usuarioModel;
