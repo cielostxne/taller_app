@@ -64,7 +64,6 @@ class ArticuloController extends Controller {
         $this->render('negocios', ['articulos' => $articulos], 'site');
 
     }
-
     private function cargarVista($vista, $datos) {
         extract($datos);
         require __DIR__ . "/../views/$vista";

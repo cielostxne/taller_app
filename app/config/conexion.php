@@ -1,5 +1,7 @@
+
+
 <?php
-$host = "sql301.infinityfree.com";
+/* $host = "sql301.infinityfree.com";
 $db = "if0_38896219_elfaro_db";
 $user = "if0_38896219";
 $pass = "030525faro";
@@ -11,3 +13,5 @@ try {
 } catch (PDOException $e) {
   echo "Error de conexión: " . $e->getMessage();
 }
+
+*/

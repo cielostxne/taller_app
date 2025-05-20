@@ -82,32 +82,78 @@ body {
   background-color: var(--background-dark);
   color: var(--color-texto);
 
-
-  display: grid;
+  display: flex;
+  flex-direction: column;
   min-height: 100dvh;
-  grid-template-rows: auto 1fr auto;
+
 }
 
-header {
-  display: flex;
+main {
+  flex: 1; /* Hace que el contenido ocupe el espacio disponible */
   width: 100%;
-  height: 100vh;
-  /* Ajustado para ocupar todo el alto de la pantalla */
-  background-image: url(../imagenes/faro2.jpg);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
 
-  /* Flexbox para alinear contenido */
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
 
+
 }
 
+.main_div_contener_home{
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%
+}
+
+.card {
+    background-color: transparent !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+.media-content{
+    overflow: clip !important;
+}
+
+
+.titulares{
+    border-bottom: solid 1px white !important;
+}
+
+.card-content{
+    padding: 0 !important;
+}
+.title_sub{
+    margin-bottom: 40px;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover !important;
+}
+
+
+
+.subtitle_card{
+    font-size: 0.75rem !important;
+}
+.main_contenedor_interior{
+    padding-bottom: 10rem;
+}
+
+
+
+
+
+
 .container {
-  max-width: 1200px;
+  max-width: 700px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -117,10 +163,12 @@ header {
   text-align: center;
 }
 
+
+
 /*
 FORMULARIO REGISTRO UIX
 */
-.container-registro{
+.container-registro, .container-registroExitoso{
   position: relative;
   top: -190px;
 }
@@ -129,7 +177,7 @@ FORMULARIO REGISTRO UIX
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  min-width: 500px;
 }
 
 .input {
@@ -184,12 +232,12 @@ FORMULARIO CONTACTO UIX
 /*------------------------*/
 
 .img__fondo {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100vh;
-  top: 0;
+  top: 0 !important;
   left: 0;
-  z-index: 10;
+  z-index: 1;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -202,9 +250,8 @@ FORMULARIO CONTACTO UIX
   position: absolute;
   width: 100%;
   height: 111vh;
-  top: 5rem;
+  top: 0rem;
   left: 0;
-
   /* From https://css.glass */
   background: rgba(35, 31, 32, 0.72);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -213,7 +260,7 @@ FORMULARIO CONTACTO UIX
   border: 1px solid rgba(35, 31, 32, 0.3);
 
   box-sizing: border-box;
-
+    z-index: 50 !important;
 }
 
 
@@ -225,10 +272,27 @@ NAV VAR SECTION
 
 nav {
   width: 100%;
+  z-index: 100 !important;
+   background: transparent !important;
+
 }
 
 .navbar {
-  padding: 1rem;
+  padding: 0.3rem;
+  max-width: 1200px;
+}
+
+.navbar-menu{
+    margin-right: 1rem;
+    margin-left: 2rem;
+    background: transparent !important;
+    box-shadow: 0 !important;
+}
+
+
+.navbar-item{
+    font-size: 0.8rem !important;
+    background: transparent !important;
 }
 
 
@@ -239,6 +303,10 @@ nav {
 }
 
 
+
+.reloj>p{
+    font-size: 1rem;
+}
 
 
 .reloj-mobile {
@@ -253,7 +321,11 @@ nav>ul>li>a {
 
 
 .logo {
-  width: 100%;
+    width: 30px !important;
+    height: 30px !important;
+    border-radius: 30px !important;
+    object-fit: cover !important;
+    object-position: 40% 10% !important;
 
 }
 
@@ -299,11 +371,27 @@ nav>ul>li>a {
 
 .breadcrumb {
 
-  z-index: 40 !important;
-  padding-top: 1rem;
+  /*z-index: 100 !important;*/
+  padding-top: 0rem;
 }
 
 /* Estilos para la sección de deportes */
+
+.titulo-seccion{
+    border-bottom: solid 1px !important;
+    font-size: 19px !important;
+    letter-spacing: 1.5px !important;
+    text-align: center !important;
+}
+.titulo-seccion span{
+    color: inherit;
+    background: var(--background-dark);
+    padding:0 20px;
+}
+
+
+
+
 .hero-gradient {
   background: linear-gradient(to right, var(--background-dark), var(--background-dark));
   color: var(--color-blue-zodiac-950);
@@ -329,30 +417,6 @@ h3 {
   margin-bottom: 20px;
 }
 
-/* Estilos para la tabla */
-table {
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  border-collapse: collapse;
-}
-
-table,
-th,
-td {
-  border: 1px solid #ddd;
-}
-
-th,
-td {
-  padding: 15px;
-  text-align: left;
-}
-
-th {
-  background-color: #000000;
-  color: white;
-}
 
 /* Estilos para video y audio */
 video,
@@ -445,7 +509,8 @@ article>.title {
 
 
 .button {
-  margin-bottom: 1rem;
+  margin-bottom: 0rem !important;
+  font-size: 0.8rem !important;
 }
 
 .box {
@@ -488,7 +553,8 @@ footer {
   color: #31231e;
   text-align: center;
   padding: 15px;
-  margin-top: 0px;
+  width: 100%;
+
 }
 
 /* EFECTO NEGRITA EN VÍNCULOS
@@ -682,11 +748,9 @@ PANTALLA PARA MÓVIL
  */
 
 @media (max-width: 894px) {
-  body {
-    background-color: #222;
-    color: white;
-  }
-
+    .main_div_contener_home{
+        padding: 0 0;
+    }
 
 
   h1,
@@ -702,20 +766,9 @@ PANTALLA PARA MÓVIL
     padding: 0 15px;
   }
 
-  table {
-    width: 100%;
-    max-width: 600px;
-    margin: 10px auto;
-    border-collapse: collapse;
-  }
 
-  th,
-  td {
-    padding: 12px;
-    text-align: center;
-    border: 1px solid rgb(0, 0, 0);
-    color: #000000;
-  }
+
+ 
 
   .articulo p {
     color: #000000;
@@ -753,6 +806,10 @@ PANTALLA PARA MÓVIL
   .reloj-mobile>.reloj-cabecera {
     font-size: 0.7rem;
   }
+
+    .wrap{
+        display: none !important;
+    }
 
   .btn-flotante {
     position: fixed;
@@ -861,7 +918,7 @@ PANTALLA PARA MÓVIL
   }
 
   .container-registro {
-    top: -90px;
+    top: -140px;
   }
   .container-contacto{
     top: -78px;
@@ -873,6 +930,30 @@ PANTALLA PARA MÓVIL
     max-width: 200px;
     padding: 0.5rem 1rem;
   }
+  .navbar-menu{
+      margin-right: 0 !important;
+      margin-left: 0 !important;
+  }
+
+  .subtitle, .title_sub, .txl {
+      text-align: left !important;
+  }
+  
+    .etiqueta-card{
+        width:74px !important;
+        background:yellow;
+        color: black !important;
+    }
+    .media-content{
+        padding: 0 14px !important;
+
+    }
+
+    .title_sub{
+        font-size: 1rem !important;
+    }
+
+
 
 }
 
@@ -937,7 +1018,9 @@ PANTALLA PARA MÓVIL
     text-align: center;
   }
 
-
+ .container-usuarios{
+     justify-content: start !important;
+ }
   .banner-text {
     padding: 0px;
   }
@@ -1022,7 +1105,13 @@ PANTALLA PARA MÓVIL
     top: 0;
 
   }
+  .wrap{
+      display: none !important;
+  }
 
+
+
+  
 
 }
 
@@ -1030,7 +1119,7 @@ PANTALLA PARA MÓVIL
 .seccion-con-fondo {
   padding-top: 0rem;
   padding-bottom: 0rem;
-  background-image: url('../imagenes/faro2.jpg');
+  /*background-image: url('../imagenes/faro2.jpg');*/
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

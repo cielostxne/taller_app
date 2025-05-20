@@ -17,11 +17,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function actualizarFechaHora() {
     const ahora = new Date();
-    const opcionesFecha = {
-        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
-    };
-    const fecha = ahora.toLocaleDateString('es-CL', opcionesFecha);
+    const opcionesFecha = { weekday: 'short', day: '2-digit', month: '2-digit', year: 'numeric' };
+    let fecha = ahora.toLocaleDateString('es-CL', opcionesFecha);
+
+    // Reemplazo el formato de fecha para mantener el formato deseado
+    fecha = fecha.replace(/(\d{2})\/(\d{2})\/(\d{4})/, '$2-$1-$3'); 
+
     const hora = ahora.toLocaleTimeString('es-CL', { hour12: false });
+
+
 
     const elementoFechaHora = document.getElementById("fechaHora");
     const elementoFechaHoraDesktop = document.getElementById("fechaHoraDesktop");
@@ -37,6 +41,74 @@ function actualizarFechaHora() {
 
 setInterval(actualizarFechaHora, 1000);
 actualizarFechaHora();
+
+
+(function () {
+    var actualizarHora = function () {
+        // Obtenemos la fecha actual, incluyendo las horas, minutos, segundos, dia de la semana, dia del mes, mes y año;
+        var fecha = new Date(),
+            horas = fecha.getHours(),
+            ampm,
+            minutos = fecha.getMinutes(),
+            segundos = fecha.getSeconds(),
+            diaSemana = fecha.getDay(),
+            dia = fecha.getDate(),
+            mes = fecha.getMonth(),
+            year = fecha.getFullYear();
+
+        // Accedemos a los elementos del DOM para agregar mas adelante sus correspondientes valores
+        var pHoras = document.getElementById('horas'),
+            pAMPM = document.getElementById('ampm'),
+            pMinutos = document.getElementById('minutos'),
+            pSegundos = document.getElementById('segundos'),
+            pDiaSemana = document.getElementById('diaSemana'),
+            pDia = document.getElementById('dia'),
+            pMes = document.getElementById('mes'),
+            pYear = document.getElementById('year');
+
+
+        // Obtenemos el dia se la semana y lo mostramos
+        var semana = ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'];
+        pDiaSemana.textContent = semana[diaSemana];
+
+        // Obtenemos el dia del mes
+        pDia.textContent = dia;
+
+        // Obtenemos el Mes y año y lo mostramos
+        var meses = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
+        pMes.textContent = meses[mes];
+        pYear.textContent = year;
+
+        // Cambiamos las hora de 24 a 12 horas y establecemos si es AM o PM
+
+        if (horas >= 12) {
+            horas = horas - 12;
+            ampm = ' PM';
+        } else {
+            ampm = ' AM';
+        }
+
+        // Detectamos cuando sean las 0 AM y transformamos a 12 AM
+        if (horas == 0) {
+            horas = 12;
+        }
+
+        // Si queremos mostrar un cero antes de las horas ejecutamos este condicional
+        // if (horas < 10){horas = '0' + horas;}
+        pHoras.textContent = horas;
+        pAMPM.textContent = ampm;
+
+        // Minutos y Segundos
+        if (minutos < 10) { minutos = "0" + minutos; }
+        if (segundos < 10) { segundos = "0" + segundos; }
+
+        pMinutos.textContent = minutos;
+        pSegundos.textContent = segundos;
+    };
+
+    actualizarHora();
+    var intervalo = setInterval(actualizarHora, 1000);
+}())
 
 //------------------------
 
@@ -55,7 +127,7 @@ function mostrarArticulosPorCategoria(categoria, contenedorID) {
 
     contenedor.innerHTML = "";
 
-    
+
 
 
     articulosFiltrados.forEach(a => {
@@ -367,6 +439,12 @@ document.querySelectorAll('.breadcrumb a').forEach(enlace => {
         }
     });
 });
+
+
+
+
+
+
 
 // Inicialización al cargar la página
 window.onload = function () {

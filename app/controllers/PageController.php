@@ -21,6 +21,11 @@ class PageController extends Controller
 
         $this->render('negocios', [], 'site');
     }
+    public function noticias_regionales ()
+    {
+        
+        $this->render('noticias_regionales',[], 'site');
+    }
     public function contacto()
     {
 

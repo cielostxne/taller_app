@@ -19,11 +19,23 @@ class Router
             $url = ['page', 'home'];
         }
 
-        // Nombre del controlador (primera parte de la URL)
-        $this->controller = !empty($url[0]) ? ucfirst($url[0]) . 'Controller' : 'PageController';
+        // ✅ Manejo especial para logout
+        if ($url[0] === 'logout') {
+            require_once __DIR__ . '/controllers/LogoutController.php';
+            exit;
+        }
 
-        // Nombre del método (segunda parte de la URL)
-        $this->method = !empty($url[1]) ? $url[1] : 'home';
+        // ✅ Redirección especial para noticias_regionales (está en PageController)
+        if ($url[0] === 'noticias_regionales') {
+            $this->controller = 'PageController';
+            $this->method = 'noticias_regionales';
+        } else {
+            // Nombre del controlador (primera parte de la URL)
+            $this->controller = !empty($url[0]) ? ucfirst($url[0]) . 'Controller' : 'PageController';
+
+            // Nombre del método (segunda parte de la URL)
+            $this->method = !empty($url[1]) ? $url[1] : 'home';
+        }
 
         // Ruta del archivo del controlador
         $controllerFile = __DIR__ . '/controllers/' . $this->controller . '.php';
